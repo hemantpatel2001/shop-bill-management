@@ -7,6 +7,7 @@ type Props = {}
 const ProductsListingWrapper = (props: Props) => {
   const { data, isLoading, isError } = useProductGetQuery()
 
+console.log(data);
 
 
   return (

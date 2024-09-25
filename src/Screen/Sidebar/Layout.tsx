@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import CustomerListingWrapper from '../Customer/List/CustomerListingWrapper';
 
 
 
@@ -10,7 +11,8 @@ const Layout = () => {
       <Sidebar />
         
         <div className="flex-1 bg-gray-200  " >
-        <Outlet/>
+       
+        <Outlet  />
       </div>
 
 
@@ -19,3 +21,5 @@ const Layout = () => {
 }
 
 export default Layout;
+
+

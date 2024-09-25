@@ -1,14 +1,18 @@
+
+
+
+
 import { ErrorMessage, FormikProps } from 'formik';
-import { CustomerFormValues } from '../Add/AddCustomerFormWrapper';
 import ATMTextField from '../../../Components/Atoms/AtmTextField/AtmTextField';
+import { vendorFormValues } from '../ADD/AddVendorFormWrappers';
 
 type Props = {
-    formikProps: FormikProps<CustomerFormValues>;
+    formikProps: FormikProps<vendorFormValues>;
     heading: string;
     buttonName: string;
 };
 
-const CustomerFormLayout = ({ formikProps, heading, buttonName ,isLoading}: Props) => {
+const VendorLayout = ({ formikProps, heading, buttonName ,isLoading}: Props) => {
     const { values, handleChange, handleSubmit ,isSubmitting} = formikProps; 
 
     return (
@@ -21,8 +25,8 @@ const CustomerFormLayout = ({ formikProps, heading, buttonName ,isLoading}: Prop
                     {/* Name */}
                     <div className="mb-4">
                         <ATMTextField
-                            label="Name"
-                            placeholder="Enter your name"
+                            label=" Name"
+                            placeholder="Enter vendor name"
                             name="name"
                             value={values.name}
                             onChange={handleChange}
@@ -36,7 +40,7 @@ const CustomerFormLayout = ({ formikProps, heading, buttonName ,isLoading}: Prop
                     <div className="mb-4">
                         <ATMTextField
                             label="Email"
-                            placeholder="Enter your email"
+                            placeholder="Enter vendor email"
                             name="email"
                             value={values.email}
                             onChange={handleChange}
@@ -49,7 +53,7 @@ const CustomerFormLayout = ({ formikProps, heading, buttonName ,isLoading}: Prop
                     <div className="mb-4">
                         <ATMTextField
                             label="Mobile"
-                            placeholder="Enter your mobile"
+                            placeholder="Enter mobile number"
                             name="mobile"
                             value={values.mobile}
                             onChange={handleChange}
@@ -61,14 +65,14 @@ const CustomerFormLayout = ({ formikProps, heading, buttonName ,isLoading}: Prop
                     {/* City */}
                     <div className="mb-4">
                         <ATMTextField
-                            label="City"
-                            placeholder="Enter your city"
-                            name="city"
-                            value={values.city}
+                            label="Address"
+                            placeholder="Enter vendor address"
+                            name="address"
+                            value={values.address}
                             onChange={handleChange}
                             className="w-full"
                         />
-                               <p className='text-red-400 h-2'><ErrorMessage name='city' /></p>
+                               <p className='text-red-400 h-2'><ErrorMessage name='address' /></p>
                     </div>
 
                     {/* Submit Button */}
@@ -87,4 +91,4 @@ const CustomerFormLayout = ({ formikProps, heading, buttonName ,isLoading}: Prop
     );
 };
 
-export default CustomerFormLayout;
+export default VendorLayout;

@@ -1,11 +1,12 @@
 import { Formik, FormikHelpers } from 'formik'
-import CustomerFormLayout from '../Layout/CustomerFormLayout';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useCustomerGetByIdQuery, useUpdatecustomerMutation } from '../../../Slice/customerslice';
-import { CustomerFormValues } from '../Add/AddCustomerFormWrapper';
-import { toast } from 'react-toastify';
 
-const EditCustomerFormWrapper = () => {
+import { toast } from 'react-toastify';
+import { vendorFormValues } from '../ADD/AddVendorFormWrappers';
+import VendorLayout from '../Layout/VendorLayout';
+
+const EditVendorsFormWrapper = () => {
     const navigate=useNavigate()
     const [updatecustomer] = useUpdatecustomerMutation();
     const { id } = useParams();
@@ -17,14 +18,14 @@ const EditCustomerFormWrapper = () => {
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error loading customer data</p>;
 
-    const initialvalues: CustomerFormValues = {
+    const initialvalues: vendorFormValues = {
         name: data?.data?.name || '',
         email: data?.data?.email || '',
         mobile: data?.data?.mobile || '',
-        city: data?.data?.city || '',
+        address: data?.data?.city || '',
     };
 
-    const handleSubmit = (values:CustomerFormValues ,{resetForm}:FormikHelpers<any>) => {
+    const handleSubmit = (values:vendorFormValues,{resetForm}:FormikHelpers<any>) => {
         const data = values;
         updatecustomer({ data, id }).then((res) => {
             console.log(res.data.data ,"edit")
@@ -42,9 +43,9 @@ const EditCustomerFormWrapper = () => {
         <Formik initialValues={initialvalues} onSubmit={handleSubmit}>
             {(formikProps) => {
                 return (
-                    <CustomerFormLayout
-                        heading={"Edit Customer"}
-                        buttonName={"Update"}
+                    <VendorLayout
+                        heading={"Edit vendor"}
+                        buttonName={"ADD"}
                         formikProps={formikProps}
                     />
                 );
@@ -53,4 +54,4 @@ const EditCustomerFormWrapper = () => {
     );
 };
 
-export default EditCustomerFormWrapper;
+export default EditVendorsFormWrapper;

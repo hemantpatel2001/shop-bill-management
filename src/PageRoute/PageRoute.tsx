@@ -8,6 +8,11 @@ import AddProductWrapper from '../Screen/Product/Add/AddProductWrapper'
 import ProductsListingWrapper from '../Screen/Product/List/ProductsListingWrapper'
 import EditCustomerFormWrapper from '../Screen/Customer/Edit/EditCustomerFormWrapper'
 import AddInvoiceWrapper from '../Screen/Invoice/Add/AddInvoiceWrapper'
+import AddCategoryWrapper from '../Screen/category/Add/AddCategoryWrapper'
+import EditCategoryWrapper from '../Screen/category/Edit/EditCategoryWrapper'
+import CategoryListWrapper from '../Screen/category/List/CategoryListWrapper'
+import AddVendorFormWrappers from '../Screen/Vendor/ADD/AddVendorFormWrappers'
+import EditVendorsFormWrapper from '../Screen/Vendor/EDIT/EditVendorsFormwrappers'
 
 
 
@@ -36,6 +41,22 @@ export const PageRoute = () => {
           element: <EditCustomerFormWrapper />
         },
         {
+          path: 'customer-details/edit-customer/:id',
+          element: <EditCustomerFormWrapper />
+        },
+        {
+          path: "add-category",
+          element: <AddCategoryWrapper />
+        },
+        {
+          path: "edit-category",
+          element: <EditCategoryWrapper />
+        },
+        {
+          path:"category-details",
+          element:<CategoryListWrapper/>
+        },
+        {
           path: "add-Product",
           element: <AddProductWrapper />
         },
@@ -43,13 +64,19 @@ export const PageRoute = () => {
           path: "Product-details",
           element: <ProductsListingWrapper />
         }
-        ,{
-          path:"Add-invoice",
-          element:<AddInvoiceWrapper/>
+        , {
+          path: "Add-invoice",
+          element: <AddInvoiceWrapper />
         },
-        { path:'customer-details/edit-customer/:id', 
-          
-          element: <EditCustomerFormWrapper/> }
+        {
+          path:"add-vendore",
+          element:<AddVendorFormWrappers/>
+        },
+        {
+          path:"edit-vendor",
+          element:<EditVendorsFormWrapper/>
+        }
+     
       ]
 
     }

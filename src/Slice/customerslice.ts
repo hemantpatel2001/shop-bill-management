@@ -10,7 +10,7 @@ const customerslice = apislice.injectEndpoints({
                 method: 'POST',
                 body
             }),
-            invalidatesTags: ["customer"]
+            invalidatesTags: ["customer"],
 
         }),
         customerGet: builder.query({
@@ -19,33 +19,33 @@ const customerslice = apislice.injectEndpoints({
                 method: "GET",
                 body
             }),
-            providesTags: ["customer","delete","edit"]
+            providesTags: ["customer", "delete", "edit"]
         }),
         deleteCustomer: builder.mutation({
             query: (id) => ({
                 url: `/customer/delete/${id}`,
                 method: "DELETE"
             }),
-invalidatesTags:["delete"]
+            invalidatesTags: ["delete"]
         }),
-       updatecustomer: builder.mutation({
-            query: ( {id,data}) => ({
+        updatecustomer: builder.mutation({
+            query: ({ id, data }) => ({
                 url: `/customer/update/${id}`,
                 method: "PATCH",
-                body:data
+                body: data
             }),
-invalidatesTags:["edit"]
+            invalidatesTags: ["edit", "single"],
         }),
         customerGetById: builder.query({
-            query: (id )=> ({
-                url:`/customer/singleCustomer/${id}`,
+            query: (id) => ({
+                url: `/customer/singleCustomer/${id}`,
                 method: "GET",
-             
-            }),
 
+            }),
+            providesTags: ["single"]
         }),
 
-        
+
 
 
     })
@@ -56,5 +56,5 @@ export const {
     useDeleteCustomerMutation,
     useUpdatecustomerMutation,
     useCustomerGetByIdQuery
-   
+
 } = customerslice

@@ -4,7 +4,6 @@ import { object, string } from 'yup'
 import { useLoginMutation } from '../Slice/Authslice'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import ATMTextField from '../Components/Atoms/AtmTextField/AtmTextField'
 
 const LoginWrapper = () => {
   const [login, { isLoading }] = useLoginMutation()
@@ -16,11 +15,11 @@ const LoginWrapper = () => {
   }
 
   const validateschema = object({
-    email: string().email().required("Enter your email"),
+    email: string().email("Invalide email format").required("Enter your email"),
     password: string().required(" Enter your password ")
   })
 
-  const handleSubmit = (values: any, { setSubmitting }: FormikHelpers<any>) => {
+  const handleSubmit = (values: any, { setSubmitting, resetForm }: FormikHelpers<any>) => {
     login(values)
       .then((response: any) => {
         const token = response?.data?.token
@@ -28,7 +27,7 @@ const LoginWrapper = () => {
         if (token) {
           localStorage.setItem("auth", token)
           toast.success("Login successfully")
-          navigate('/shop-bill-management') 
+          navigate('/shop-bill-management/customer-details')
         } else {
           toast.error("Invalid password and email")
         }
@@ -39,6 +38,7 @@ const LoginWrapper = () => {
       })
       .finally(() => {
         setSubmitting(false)
+        resetForm()
       })
   }
 
