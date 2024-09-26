@@ -23,12 +23,12 @@ const CategoryLayout = ({ formikProps, heading, buttonName }: Props) => {
                         <ATMTextField
                             label=" Category name"
                             placeholder="Enter category name"
-                            name="categoryName"
-                            value={values.categoryName}
+                            name="name"
+                            value={values.name}
                             onChange={handleChange}
                             className="w-full p-2"
                         />
-                        <p className='text-red-400 h-2'><ErrorMessage name='categoryName' /></p>
+                        <p className='text-red-400 h-2'><ErrorMessage name='name' /></p>
                         
                     </div>
 

@@ -13,6 +13,7 @@ import EditCategoryWrapper from '../Screen/category/Edit/EditCategoryWrapper'
 import CategoryListWrapper from '../Screen/category/List/CategoryListWrapper'
 import AddVendorFormWrappers from '../Screen/Vendor/ADD/AddVendorFormWrappers'
 import EditVendorsFormWrapper from '../Screen/Vendor/EDIT/EditVendorsFormwrappers'
+import VendorListingWrapper from '../Screen/Vendor/LIST/VendorListingWrapper'
 
 
 
@@ -57,6 +58,10 @@ export const PageRoute = () => {
           element:<CategoryListWrapper/>
         },
         {
+          path: '/shop-bill-management/edit-customer/:id',
+          element: <EditCategoryWrapper />
+        },
+        {
           path: "add-Product",
           element: <AddProductWrapper />
         },
@@ -75,6 +80,9 @@ export const PageRoute = () => {
         {
           path:"edit-vendor",
           element:<EditVendorsFormWrapper/>
+        },{
+          path:"vendors-details",
+          element:<VendorListingWrapper/>
         }
      
       ]

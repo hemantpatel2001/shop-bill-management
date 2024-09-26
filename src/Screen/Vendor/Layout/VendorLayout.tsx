@@ -12,7 +12,7 @@ type Props = {
     buttonName: string;
 };
 
-const VendorLayout = ({ formikProps, heading, buttonName ,isLoading}: Props) => {
+const VendorLayout = ({ formikProps, heading, buttonName }: Props) => {
     const { values, handleChange, handleSubmit ,isSubmitting} = formikProps; 
 
     return (

@@ -1,38 +1,52 @@
 import { Formik, FormikHelpers } from "formik";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { object, string } from "yup";
 import CategoryLayout from "../Layout/CategoryLayout";
+import { useCategoryGetByIdQuery, useUpdatecategoryMutation } from "../../../Slice/categoryslice";
 
 export type CategoryFormValues = {
-    categoryName: string;
+    name: string;
 };
 
 const EditCategoryWrapper = () => {
     const navigate = useNavigate();
 
+    const [updatecategory] = useUpdatecategoryMutation();
+    const { id } = useParams();
+    const { data, isLoading } = useCategoryGetByIdQuery(id);
+
     const initialValues: CategoryFormValues = {
-        categoryName: '',
+        name: data?.data?.name || '',
     };
 
     const categoryValidation = object({
-        categoryName: string().required('Enter category name'),
+        name: string().required('Enter category name'),
     });
 
-    const handleSubmit = (values: CategoryFormValues, {setSubmitting ,resetForm}: FormikHelpers<CategoryFormValues>) => {
-        console.log(values);
-      
-       if(values){
-        resetForm()
-        setSubmitting(false)
-       }
-      
+    const handleSubmit = (
+        values: CategoryFormValues,
+        { setSubmitting, resetForm }: FormikHelpers<CategoryFormValues>
+    ) => {
+        updatecategory({ data: values, id })
+            .then((res) => {
+                console.log(res);
+                navigate("/shop-bill-management/category-details");
+            });
+
+        if (values) {
+            resetForm();
+            setSubmitting(false);
+        }
     };
+
+
 
     return (
         <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}
             validationSchema={categoryValidation}
+            enableReinitialize={true}
         >
             {(formikProps) => (
                 <CategoryLayout

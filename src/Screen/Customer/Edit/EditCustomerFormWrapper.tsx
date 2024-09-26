@@ -9,9 +9,7 @@ const EditCustomerFormWrapper = () => {
     const navigate=useNavigate()
     const [updatecustomer] = useUpdatecustomerMutation();
     const { id } = useParams();
-    const { data, isLoading, error } = useCustomerGetByIdQuery(id, {
-        refetchOnMountOrArgChange: true, 
-    });
+    const { data, isLoading, error } = useCustomerGetByIdQuery(id);
 
   
     if (isLoading) return <p>Loading...</p>;

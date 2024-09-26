@@ -4,7 +4,7 @@ type Props = {}
 
 const VendorListingWrapper = (props: Props) => {
   return (
-    <div>VendorListingWrapper</div>
+<VendorListingWrapper/>
   )
 }
 

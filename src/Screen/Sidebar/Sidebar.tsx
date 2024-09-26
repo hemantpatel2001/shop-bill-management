@@ -27,6 +27,13 @@ const Sidebar = () => {
                     Category
                 </Link>
             </div>
+            
+            {/* Products */}
+            <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
+                <Link to="vendors-details">
+                  Vendor
+                </Link>
+            </div>
 
             {/* Products */}
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">

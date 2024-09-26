@@ -11,22 +11,22 @@ type Props = {
 }
 
 const ProductsListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }: Props) => {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
-  if (isLoading) return <div className='max-w-4xl mx-auto p-6 mt-16 bg-white rounded-md shadow-md'><Skeleton/></div>;
+  if (isLoading) return <div className='max-w-4xl mx-auto p-6 mt-16 bg-white rounded-md shadow-md'><Skeleton /></div>;
   if (isError) return <div className="flex justify-center text-sky-800 text-4xl p-44">Error fetching product</div>;
 
   return (
     <div className="max-w-4xl mx-auto p-6 mt-16 bg-white rounded-md shadow-md">
-  <div className="flex justify-between items-center mb-4">
-                    <h1 className="text-3xl font-bold text-gray-700">Product's</h1>
-                    <button 
-                        className="text-white rounded-lg h-10 bg-yellow-500 hover:bg-yellow-600 transition-all p-2"
-                        onClick={() => navigate("/shop-bill-management/add-Product")}
-                    >
-                        ADD NEW Product
-                    </button>
-                </div>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-3xl font-bold text-gray-700">Product's</h1>
+        <button
+          className="text-white rounded-lg h-10 bg-yellow-500 hover:bg-yellow-600 transition-all p-2"
+          onClick={() => navigate("/shop-bill-management/add-Product")}
+        >
+          ADD NEW Product
+        </button>
+      </div>
 
       <div className="overflow-auto max-h-[400px]">
         <table className="min-w-full bg-white table-auto">
@@ -53,13 +53,13 @@ const ProductsListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }:
                     onClick={() => HandleEdit(product._id)}
                     className="px-3 py-1 bg-blue-500 text-white rounded-md mr-2 hover:bg-blue-600 transition-all"
                   >
-                EDIT
+                    EDIT
                   </button>
                   <button
                     onClick={() => HandleDelete(product._id)}
                     className="px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition-all"
                   >
-                   DELETE
+                    DELETE
                   </button>
                 </td>
               </tr>
