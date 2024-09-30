@@ -1,7 +1,3 @@
-
-
-
-
 import { ErrorMessage, FormikProps } from 'formik';
 import ATMTextField from '../../../Components/Atoms/AtmTextField/AtmTextField';
 import { vendorFormValues } from '../ADD/AddVendorFormWrappers';
@@ -13,12 +9,12 @@ type Props = {
 };
 
 const VendorLayout = ({ formikProps, heading, buttonName }: Props) => {
-    const { values, handleChange, handleSubmit ,isSubmitting} = formikProps; 
+    const { values, handleChange, handleSubmit, isSubmitting } = formikProps;
 
     return (
         <div className="flex justify-center items-center h-screen bg-gray-50">
-            <div className="w-full max-w-lg p-8 bg-white border border-gray-200 rounded-lg shadow-md">
-                <h2 className="text-xl font-semibold text-center mb-6 text-slate-700">{heading}</h2>
+            <div className="w-full max-w-2xl p-8 bg-white border border-gray-200 rounded-lg shadow-md">
+                <h2 className="text-3xl font-semibold text-center mb-6 text-slate-700">{heading}</h2>
 
                 {/* Form wrapping the fields */}
                 <form onSubmit={handleSubmit}>
@@ -30,10 +26,10 @@ const VendorLayout = ({ formikProps, heading, buttonName }: Props) => {
                             name="name"
                             value={values.name}
                             onChange={handleChange}
-                            className="w-full"
+                            className="w-full "
                         />
-                        <p className='text-red-400 h-2'><ErrorMessage name='name' /></p>
-                        
+                        <p className="text-red-400 text-xl h-3"><ErrorMessage name="name" /></p>
+
                     </div>
 
                     {/* Email */}
@@ -46,7 +42,7 @@ const VendorLayout = ({ formikProps, heading, buttonName }: Props) => {
                             onChange={handleChange}
                             className="w-full"
                         />
-                          <p className='text-red-400 h-2'><ErrorMessage name='email' /></p>
+                        <p className="text-red-400 text-xl h-3"><ErrorMessage name='email' /></p>
                     </div>
 
                     {/* Mobile */}
@@ -59,7 +55,7 @@ const VendorLayout = ({ formikProps, heading, buttonName }: Props) => {
                             onChange={handleChange}
                             className="w-full"
                         />
-                               <p className='text-red-400 h-2'><ErrorMessage name='mobile' /></p>
+                        <p className='text-red-400 text-xl h-3'><ErrorMessage name='mobile' /></p>
                     </div>
 
                     {/* City */}
@@ -72,17 +68,17 @@ const VendorLayout = ({ formikProps, heading, buttonName }: Props) => {
                             onChange={handleChange}
                             className="w-full"
                         />
-                               <p className='text-red-400 h-2'><ErrorMessage name='address' /></p>
+                        <p className="text-red-400 text-xl h-3"><ErrorMessage name='address' /></p>
                     </div>
 
                     {/* Submit Button */}
                     <div>
                         <button
                             type="submit"
-                            className="border rounded-lg bg-blue-600 hover:bg-blue-300 w-full h-12 p-2 mt-4 font-light text-xl text-white"
+                            className='ext-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 text-white dark:focus:ring-blue-800 font-medium w-full rounded-lg text-lg px-5 py-2.5 text-center me-2 mt-4 mb-2'
                             disabled={isSubmitting}
                         >
-                       {isSubmitting? "Submitting...":`${buttonName} `}   
+                            {isSubmitting ? "Submitting..." : `${buttonName} `}
                         </button>
                     </div>
                 </form>

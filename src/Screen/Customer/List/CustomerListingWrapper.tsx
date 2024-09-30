@@ -48,7 +48,7 @@ const CustomerListingWrapper = () => {
         <CustomerListing 
             data={data} 
             HandleEdit={HandleEdit} 
-            HandleDelete={HandleDelete} 
+           HandleDelete={HandleDelete}
             isLoading={isLoading} 
             isError={isError} 
         />

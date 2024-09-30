@@ -6,5 +6,8 @@ export const apislice = createApi({
         baseUrl: 'http://192.168.1.9:1000'
     }),
     endpoints: (builder) => ({}),
-    tagTypes:["customer" ,"product","delete","edit","single","categoryDelte" ,"categoryadd","editcategory","singleCategory"]
+    tagTypes:["customer" ,"product","delete","edit","single",
+        "categoryDelte" ,"categoryadd","editcategory","singleCategory",
+        "VendorAdd","vendoreEdit","singlevendor" 
+    ]
 })

@@ -9,7 +9,7 @@ const Sidebar = () => {
     };
 
     return (
-        <div className="w-64 h-screen bg-gray-300 text-black shadow-lg text-2xl flex flex-col pl-8 gap-2">
+        <div className="w-64 h-screen fixed bg-gray-300 text-black shadow-lg text-2xl flex flex-col pl-8 gap-2">
             <div className="p-4 cursor-pointer">
                 <img className="w-28 h-32" src="https://salescrm.aarohiweblogger.com/assets/img/brand/logo.png" alt="Aarohi sales" />
             </div>
@@ -20,20 +20,20 @@ const Sidebar = () => {
                     Customer
                 </Link>
             </div>
-
             {/* Category */}
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="category-details">
                     Category
                 </Link>
             </div>
-            
-            {/* Products */}
+
+            {/*Vendore*/}
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="vendors-details">
-                  Vendor
+                    Vendore
                 </Link>
             </div>
+
 
             {/* Products */}
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
@@ -42,12 +42,14 @@ const Sidebar = () => {
                 </Link>
             </div>
 
-            {/* Invoice */}
+            {/* Invoice
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="invoice-history">
                     Invoice
                 </Link>
             </div>
+             */}
+
 
             {/* Logout */}
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">

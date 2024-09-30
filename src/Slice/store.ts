@@ -5,10 +5,10 @@ import { apislice } from "./apislice";
 const store = configureStore({
 
   reducer: {
-    [apislice.reducerPath] : apislice.reducer,
+    [apislice.reducerPath]: apislice.reducer,
   },
 
-  middleware: (getDefaultMiddleware) => 
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apislice.middleware)
 })
 

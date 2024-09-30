@@ -11,7 +11,7 @@
         HandleEdit: (id: string) => void
     }
 
-    const CustomerListing = ({ data, isLoading, isError, HandleDelete, HandleEdit }: Props) => {
+    const CustomerListing = ({ data, isLoading, isError, HandleEdit,HandleDelete }: Props) => {
         const navigate = useNavigate()
         console.log(data);
         
@@ -45,11 +45,11 @@
                         <tbody>
                             {data?.data?.slice().reverse().map((customer) => (
                                 <tr key={customer._id}>
-                                    <td className="px-4 py-3 whitespace-no-wrap border-b text-base text-gray-800">{customer.name}</td>
-                                    <td className="px-4 py-3 whitespace-no-wrap border-b text-base text-gray-800">{customer.email}</td>
-                                    <td className="px-4 py-3 whitespace-no-wrap border-b text-base text-gray-800">{customer.mobile}</td>
-                                    <td className="px-4 py-3 whitespace-no-wrap border-b text-base text-gray-800">{customer.city}</td>
-                                    <td className="px-4 py-3 whitespace-no-wrap border-b text-base text-gray-800">
+                                    <td className="px-4 py-3  border-b text-base text-gray-800">{customer.name}</td>
+                                    <td className="px-4 py-3  border-b text-base text-gray-800">{customer.email}</td>
+                                    <td className="px-4 py-3  border-b text-base text-gray-800">{customer.mobile}</td>
+                                    <td className="px-4 py-3  border-b text-base text-gray-800">{customer.city}</td>
+                                    <td className="px-4 py-3  border-b text-base text-gray-800">
                                         <button
                                             onClick={() => HandleEdit(customer._id)}
                                             className="px-2 py-1 bg-blue-500 text-white rounded-md mr-2 hover:bg-blue-600 transition-all"

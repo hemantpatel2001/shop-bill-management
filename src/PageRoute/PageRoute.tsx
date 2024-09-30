@@ -57,8 +57,9 @@ export const PageRoute = () => {
           path:"category-details",
           element:<CategoryListWrapper/>
         },
+        
         {
-          path: '/shop-bill-management/edit-customer/:id',
+          path: '/shop-bill-management/edit-category/:id',
           element: <EditCategoryWrapper />
         },
         {
@@ -83,20 +84,16 @@ export const PageRoute = () => {
         },{
           path:"vendors-details",
           element:<VendorListingWrapper/>
-        }
+        },
+        {
+          path: '/shop-bill-management/edit-vendore/:id',
+          element: <EditVendorsFormWrapper />
+        },
      
       ]
-
-    }
-
-
+ }
   ])
-
-
-
-
-
-  return (
+return (
     <RouterProvider router={router} />
   )
 }

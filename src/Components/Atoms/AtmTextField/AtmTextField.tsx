@@ -12,7 +12,7 @@ type Props = {
 const ATMTextField = ({ name, value, onChange, label, placeholder, className, }: Props) => {
     return (
         <div className="flex flex-col gap-1">
-            <label htmlFor={name} className="text-slate-800 text-xl"> {label} </label>
+            <label htmlFor={name} className="text-slate-800 text-2xl"> {label} </label>
 
             <input
                 id={name}

@@ -11,7 +11,7 @@ type Props = {
   HandleEdit: (id: string) => void
 }
 
-const CategoryList = ({ isLoading, isError, HandleDelete, HandleEdit, data }: Props) => {
+const CategoryList = ({ isLoading, isError, HandleEdit, data ,HandleDelete }: Props) => {
   const navigate = useNavigate();
 
   if (isLoading) 

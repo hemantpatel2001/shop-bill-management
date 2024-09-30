@@ -14,11 +14,11 @@ const TableCategorySkeleton = () => {
         </button>
       </div>
 
-      <table className="w-full bg-white">
+      <table className="w-full  flex flex-col justify-center items-center">
         <thead className="sticky top-0 bg-gray-100">
           <tr>
             <th className="px-4 py-2 border-b-2 border-gray-300 text-left text-base font-semibold text-gray-600">
-              <div className="h-6 bg-gray-300 rounded animate-pulse w-1/3"></div>
+              <div className="h-6 bg-gray-300 rounded animate-pulse "></div>
             </th>
             <th className="px-4 py-2 border-b-2 border-gray-300 text-left text-base font-semibold text-gray-600">
               <div className="h-6 bg-gray-300 rounded animate-pulse w-1/4"></div>
