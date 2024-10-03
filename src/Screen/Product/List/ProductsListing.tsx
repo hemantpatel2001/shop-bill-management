@@ -43,10 +43,11 @@ const ProductsListing = ({ data, isLoading, isError, HandleEdit }: Props) => {
           </thead>
           <tbody>
             {data?.data?.slice().reverse().map((product) => (
+            
               <tr key={product._id}>
                 <td className="px-4 py-3 whitespace-no-wrap border-b text-base text-gray-800">{product.productName}</td>
                 <td className="px-4 py-3 whitespace-no-wrap border-b text-base text-gray-800">{product.productCode}</td>
-                <td className="px-4 py-3 whitespace-no-wrap border-b text-base text-gray-800">{ }</td>
+                <td className="px-4 py-3 whitespace-no-wrap border-b text-base text-gray-800">{ product.categoryId?.name}</td>
                 <td className="px-4 py-3 whitespace-no-wrap border-b text-base text-gray-800">{product.costPrice}</td>
                 <td className="px-4 py-3 whitespace-no-wrap border-b text-base text-gray-800">{product.MRP}</td>
                 <td className="px-4 py-3 whitespace-no-wrap border-b text-base text-gray-800">{product.sellingPrice}</td>

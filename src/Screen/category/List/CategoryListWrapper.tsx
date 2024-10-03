@@ -39,8 +39,8 @@ const CategoryListWrapper = () => {
   };
 
   const HandleEdit = (id: any) => {
-    console.log('edit', id);
-    navigate(`/shop-bill-management/edit-category/${id}`);
+ 
+    navigate(`/shop-bill-management/edit-category/:${id}`);
   };
 
   return (

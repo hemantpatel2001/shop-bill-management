@@ -28,6 +28,7 @@ const LoginWrapper = () => {
           localStorage.setItem("auth", token)
           toast.success("Login successfully")
           navigate('/shop-bill-management/customer-details')
+        window.location.reload()
         } else {
           toast.error("Invalid password and email")
         }

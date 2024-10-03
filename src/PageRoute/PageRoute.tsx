@@ -16,6 +16,10 @@ import VendorListingWrapper from '../Screen/Vendor/LIST/VendorListingWrapper'
 import AddInvoiceWrapper from '../Screen/invoice/Add/addInvoiceWrapper'
 import EditInvoicesWrapper from '../Screen/invoice/Edit/editInvoicesWrapper'
 import InvoiceListingWrapper from '../Screen/invoice/List/InvoiceListingWrapper'
+import { Auth } from '../Authentications/Authntecation'
+import { WithoutLogin } from '../Authentications/withoutLogin'
+import EditProductWrapper from '../Screen/Product/Edit/EditProductWrapper'
+
 
 
 
@@ -25,12 +29,12 @@ export const PageRoute = () => {
 
     {
       path: "/",
-      element: <LoginWrapper />
+      element: <WithoutLogin> <LoginWrapper /></WithoutLogin>
 
     },
     {
       path: "/shop-bill-management",
-      element: <Layout />,
+      element: <Auth><Layout /></Auth>,
       children: [
         {
           path: "add-customer",
@@ -70,6 +74,16 @@ export const PageRoute = () => {
           element: <AddProductWrapper />
         },
         {
+          path: "edit-product",
+          element: <EditProductWrapper />
+        },
+        
+          {
+            path: '/shop-bill-management/edit-product/:id',
+            element: <EditProductWrapper />
+          },
+      
+        {
           path: "Product-details",
           element: <ProductsListingWrapper />
         }
@@ -91,8 +105,8 @@ export const PageRoute = () => {
           element: <EditVendorsFormWrapper />
         },
         {
-          path:"invoice-details",
-          element:<InvoiceListingWrapper/>
+          path: "invoice-details",
+          element: <InvoiceListingWrapper />
         },
         {
           path: 'add-invoice',
