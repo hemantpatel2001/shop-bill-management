@@ -27,8 +27,8 @@ const AddCategoryWrapper = () => {
         categoryAdd(values).then((res)=>{
             console.log(res);
             
-          if(res.data?.mag==="category added successfully"){
-            toast.success(res.data?.mag)
+          if(res.data?.msg==="category added successfully"){
+            toast.success(res.data?.msg)
             navigate("/shop-bill-management/category-details")
             resetForm()
             

@@ -13,7 +13,7 @@ const EditCategoryWrapper = () => {
 
     const [updatecategory] = useUpdatecategoryMutation();
     const { id } = useParams();
-    const { data, isLoading } = useCategoryGetByIdQuery(id);
+    const { data} = useCategoryGetByIdQuery(id);
 
     const initialValues: CategoryFormValues = {
         name: data?.data?.name || '',

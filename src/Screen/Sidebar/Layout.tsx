@@ -6,11 +6,11 @@ import CustomerListingWrapper from '../Customer/List/CustomerListingWrapper';
 
 const Layout = () => {
   return (
-    <div className="flex h-screen">
+    <div className="flex fiex  h-screen">
 
       <Sidebar />
         
-        <div className="flex-1 bg-gray-200  " >
+        <div className="  flex-1 " >
        
         <Outlet  />
       </div>

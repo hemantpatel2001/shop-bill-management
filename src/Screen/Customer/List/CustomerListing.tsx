@@ -1,6 +1,4 @@
-
-
-    import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
     import Skeleton from "../TableSkeleton/Skeleton";
 
     type Props = {

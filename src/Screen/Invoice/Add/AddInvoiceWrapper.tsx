@@ -1,12 +1,59 @@
+// import React from 'react';
+import InvoiceLayout from '../Layout/InvoiceLayout';
+import { Form, Formik } from 'formik';
+import { array, date, number, object, string } from 'yup';
+import { useCustomerGetQuery } from '../../../Slice/customerslice';
+import { useProductGetQuery } from '../../../Slice/productslice';
 
-import React from 'react'
+const initialValues = {
+  customerName: '',
+  date: '',
+  paymentMethod: '',
+  status: '',
+  products: [{ productName: '', quantity: 0, price: 0 }],
+};
 
-type Props = {}
+const handleSubmit = (values) => {
+  console.log("Form Values:", JSON.stringify(values, null, 2)); // Log all values in a readable format
+};
 
-function AddInvoiceWrapper({}: Props) {
+const invoiceValidation = object({
+  customerName: string().required('Select customer name'),
+  date: date().required('Date is required').nullable(),
+  paymentMethod: string().required("Select payment type"),
+  status: string().required("Select payment type"),
+  products: array().of(
+    object({
+      productName: string().required('Enter product name'),
+      quantity: number().required('Quantity is required').positive('').integer('Must be an integer'),
+      price: number().required('Price is required').positive(''),
+    })
+  ).required('At least one product is required'),
+});
+
+const AddInvoiceWrapper = () => {
+  const { data: customerData } = useCustomerGetQuery();
+  const { data: productData } = useProductGetQuery();
+
   return (
-    <div>AddInvoiceWrapper</div>
-  )
-}
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      validationSchema={invoiceValidation}
+    >
+      {(formikProps) => (
+        <Form onSubmit={formikProps.handleSubmit}>
+          <InvoiceLayout
+            Heading={"Add Invoice"}
+            buttonName={"ADD"}
+            productData={productData}
+            customerData={customerData}
+            formikProps={formikProps}
+          />
+        </Form>
+      )}
+    </Formik>
+  );
+};
 
-export default AddInvoiceWrapper
+export default AddInvoiceWrapper;

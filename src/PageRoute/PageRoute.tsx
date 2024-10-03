@@ -7,13 +7,16 @@ import Layout from '../Screen/Sidebar/Layout'
 import AddProductWrapper from '../Screen/Product/Add/AddProductWrapper'
 import ProductsListingWrapper from '../Screen/Product/List/ProductsListingWrapper'
 import EditCustomerFormWrapper from '../Screen/Customer/Edit/EditCustomerFormWrapper'
-import AddInvoiceWrapper from '../Screen/Invoice/Add/AddInvoiceWrapper'
 import AddCategoryWrapper from '../Screen/category/Add/AddCategoryWrapper'
 import EditCategoryWrapper from '../Screen/category/Edit/EditCategoryWrapper'
 import CategoryListWrapper from '../Screen/category/List/CategoryListWrapper'
 import AddVendorFormWrappers from '../Screen/Vendor/ADD/AddVendorFormWrappers'
 import EditVendorsFormWrapper from '../Screen/Vendor/EDIT/EditVendorsFormwrappers'
 import VendorListingWrapper from '../Screen/Vendor/LIST/VendorListingWrapper'
+import AddInvoiceWrapper from '../Screen/invoice/Add/addInvoiceWrapper'
+import EditInvoicesWrapper from '../Screen/invoice/Edit/editInvoicesWrapper'
+import InvoiceListingWrapper from '../Screen/invoice/List/InvoiceListingWrapper'
+
 
 
 
@@ -54,10 +57,10 @@ export const PageRoute = () => {
           element: <EditCategoryWrapper />
         },
         {
-          path:"category-details",
-          element:<CategoryListWrapper/>
+          path: "category-details",
+          element: <CategoryListWrapper />
         },
-        
+
         {
           path: '/shop-bill-management/edit-category/:id',
           element: <EditCategoryWrapper />
@@ -70,30 +73,39 @@ export const PageRoute = () => {
           path: "Product-details",
           element: <ProductsListingWrapper />
         }
-        , {
-          path: "Add-invoice",
-          element: <AddInvoiceWrapper />
+        ,
+        {
+          path: "add-vendore",
+          element: <AddVendorFormWrappers />
         },
         {
-          path:"add-vendore",
-          element:<AddVendorFormWrappers/>
+          path: "edit-vendor",
+          element: <EditVendorsFormWrapper />
         },
         {
-          path:"edit-vendor",
-          element:<EditVendorsFormWrapper/>
-        },{
-          path:"vendors-details",
-          element:<VendorListingWrapper/>
+          path: "vendors-details",
+          element: <VendorListingWrapper />
         },
         {
           path: '/shop-bill-management/edit-vendore/:id',
           element: <EditVendorsFormWrapper />
         },
-     
+        {
+          path:"invoice-details",
+          element:<InvoiceListingWrapper/>
+        },
+        {
+          path: 'add-invoice',
+          element: <AddInvoiceWrapper />
+        },
+        {
+          path: 'edit-invoice',
+          element: <EditInvoicesWrapper />
+        }
       ]
- }
+    }
   ])
-return (
+  return (
     <RouterProvider router={router} />
   )
 }
