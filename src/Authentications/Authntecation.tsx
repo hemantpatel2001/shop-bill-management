@@ -1,23 +1,30 @@
-import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
+export const Auth = ({ children }) => {
+    const navigate = useNavigate();
 
+    useEffect(() => {
+        const checkAuth = () => {
+            const token = localStorage.getItem("auth");
+            if (!token) {
+                navigate("/");
+            } else {
+                navigate("/shop-bill-management/customer-details");
+            }
+        };
 
-export const Auth =({children})=>{
-const navigate=useNavigate()
+        // Check authentication on initial render
+        checkAuth();
 
-useEffect(()=>{
+        // Set up event listener for storage changes
+        window.addEventListener("storage", checkAuth);
 
-    const token= localStorage.getItem("auth")
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener("storage", checkAuth);
+        };
+    }, [navigate]);
 
-    if(!token){
-        navigate("/")
-    }
-},[])
-return(
-    <>
-    
-    {children}
-    </>
-)
-}
+    return <>{children}</>;
+};

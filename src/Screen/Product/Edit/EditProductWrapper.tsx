@@ -5,22 +5,24 @@ import { ProductFormValues } from "../Add/AddProductWrapper";
 import { number, object, string } from "yup";
 import { useNavigate, useParams } from "react-router-dom";
 import { useCategoryGetQuery } from "../../../Slice/categoryslice";
+import { useProductGetByIdQuery, useUpdateproductMutation } from "../../../Slice/productslice";
 
 const EditProductWrapper = () => {
-  const { id } = useParams();
-  console.log(id);
-  const { data } = useCategoryGetQuery();
 
+  const { id } = useParams();
+  const { data } = useCategoryGetQuery();
+  const { data: productdata } = useProductGetByIdQuery(id)
+  const [updateproduct] = useUpdateproductMutation()
 
   const navigate = useNavigate();
   const initialvalues: ProductFormValues = {
-    productName: '',
-    MRP: '',
-    img: '',
-    categoryId: '',
-    productCode: '',
-    sellingPrice: '',
-    costPrice: '',
+    productName: productdata?.data.productName || '',
+    MRP: productdata?.data.MRP || '',
+    img: productdata?.data.img || '',
+    categoryId: productdata?.data.categoryId._id || '',
+    productCode: productdata?.data.productCode || '',
+    sellingPrice: productdata?.data.sellingPrice || '',
+    costPrice: productdata?.data.costPrice || '',
   };
 
   const customerValidation = object({
@@ -52,7 +54,8 @@ const EditProductWrapper = () => {
   });
 
   const handleSubmit = (values: ProductFormValues) => {
-    updateProduct({ data: values, id }).then((res) => {
+    updateproduct({ data: values, id }).then((res) => {
+      navigate('/shop-bill-management/product-details')
       console.log(res);
     });
 
@@ -60,7 +63,8 @@ const EditProductWrapper = () => {
   };
 
   return (
-    <Formik initialValues={initialvalues} onSubmit={handleSubmit} validationSchema={customerValidation}>
+    <Formik initialValues={initialvalues} onSubmit={handleSubmit} validationSchema={customerValidation}
+      enableReinitialize={true}>
       {(formikProps) => {
         return (
           <ProductLayout
@@ -69,6 +73,7 @@ const EditProductWrapper = () => {
             buttonName={'Edit'}
             formikProps={formikProps}
             isEdit={!!id} // Check if in edit mode
+
           />
         );
       }}

@@ -2,18 +2,19 @@ import { ErrorMessage } from "formik";
 import ATMTextField from "../../../Components/Atoms/AtmTextField/AtmTextField";
 import AtmNumberField from "../../../Components/Atoms/AtmNumberField/AtmNumberField";
 
-const ProductLayout = ({ formikProps, heading, buttonName, data, isEdit }: Props) => {
+const ProductLayout = ({ formikProps, heading, buttonName, data, isEdit }) => {
     const { values, handleChange, handleSubmit, isSubmitting } = formikProps;
 
     return (
+       <>
         <div className="flex justify-center relative mt-5 items-center text-slate-600">
             <div className="w-full max-w-4xl p-8 h-auto shadow-2xl bg-white border border-gray-200 rounded-lg">
-                <h2 className="font-semibold text-center mb-6 text-3xl text-start">{heading}</h2>
+                <h2 className="font-semibold  mb-6 text-3xl text-start">{heading}</h2>
 
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-6 flex space-x-4">
+                    <div className="mb-6 flex flex-col sm:flex-row sm:space-x-4">
                         {/* Product name */}
-                        <div className="w-1/2">
+                        <div className="flex-1">
                             <ATMTextField
                                 label="Product name"
                                 placeholder="Enter product name"
@@ -28,7 +29,7 @@ const ProductLayout = ({ formikProps, heading, buttonName, data, isEdit }: Props
                         </div>
 
                         {/* Product code */}
-                        <div className="w-1/2">
+                        <div className="flex-1">
                             <ATMTextField
                                 label="Product code"
                                 placeholder="Enter product code"
@@ -65,7 +66,7 @@ const ProductLayout = ({ formikProps, heading, buttonName, data, isEdit }: Props
                         </p>
                     </div>
 
-                    {/* Image */}
+                    {/* Image URL */}
                     <div className="mb-6">
                         <ATMTextField
                             label="Image URL"
@@ -80,9 +81,9 @@ const ProductLayout = ({ formikProps, heading, buttonName, data, isEdit }: Props
                         </p>
                     </div>
 
-                    <div className="mb-6 flex space-x-4">
+                    <div className="mb-6 flex flex-col sm:flex-row sm:space-x-4">
                         {/* Cost price */}
-                        <div className="w-1/3">
+                        <div className="flex-1">
                             <AtmNumberField
                                 label="Cost price"
                                 placeholder="Enter cost price"
@@ -97,7 +98,7 @@ const ProductLayout = ({ formikProps, heading, buttonName, data, isEdit }: Props
                         </div>
 
                         {/* MRP */}
-                        <div className="w-1/3">
+                        <div className="flex-1">
                             <AtmNumberField
                                 label="MRP"
                                 placeholder="Enter MRP"
@@ -112,7 +113,7 @@ const ProductLayout = ({ formikProps, heading, buttonName, data, isEdit }: Props
                         </div>
 
                         {/* Selling price */}
-                        <div className="w-1/3">
+                        <div className="flex-1">
                             <AtmNumberField
                                 label="Selling price"
                                 placeholder="Enter selling price"
@@ -127,7 +128,6 @@ const ProductLayout = ({ formikProps, heading, buttonName, data, isEdit }: Props
                         </div>
                     </div>
 
-
                     {/* Submit Button */}
                     <div>
                         <button
@@ -141,7 +141,9 @@ const ProductLayout = ({ formikProps, heading, buttonName, data, isEdit }: Props
                 </form>
             </div>
         </div>
+        </>
     );
+    
 };
 
 export default ProductLayout;

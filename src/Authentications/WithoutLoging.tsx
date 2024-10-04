@@ -1,5 +1,5 @@
-import { useEffect } from 'preact/hooks'
 
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const WithOutLogin = ({ children }) => {
@@ -11,8 +11,9 @@ const WithOutLogin = ({ children }) => {
         if (token) {
 
             navigate("/layout")
+            window.location.reload();
         }
-    }, [navigate])
+    },[] )
 
     return (
         <>

@@ -17,7 +17,6 @@ import AddInvoiceWrapper from '../Screen/invoice/Add/addInvoiceWrapper'
 import EditInvoicesWrapper from '../Screen/invoice/Edit/editInvoicesWrapper'
 import InvoiceListingWrapper from '../Screen/invoice/List/InvoiceListingWrapper'
 import { Auth } from '../Authentications/Authntecation'
-import { WithoutLogin } from '../Authentications/withoutLogin'
 import EditProductWrapper from '../Screen/Product/Edit/EditProductWrapper'
 
 
@@ -29,7 +28,7 @@ export const PageRoute = () => {
 
     {
       path: "/",
-      element: <WithoutLogin> <LoginWrapper /></WithoutLogin>
+      element: <Auth><LoginWrapper /></Auth>
 
     },
     {
@@ -77,12 +76,12 @@ export const PageRoute = () => {
           path: "edit-product",
           element: <EditProductWrapper />
         },
-        
-          {
-            path: '/shop-bill-management/edit-product/:id',
-            element: <EditProductWrapper />
-          },
-      
+
+        {
+          path: '/shop-bill-management/edit-product/:id',
+          element: <EditProductWrapper />
+        },
+
         {
           path: "Product-details",
           element: <ProductsListingWrapper />

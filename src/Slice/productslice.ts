@@ -23,14 +23,14 @@ const customerslice = apislice.injectEndpoints({
         }),
         updateproduct: builder.mutation({
             query: ({ id, data }) => ({
-                url: `/category/update/${id}`,
-                method: "PATCH",
+                url: `/product/update/${id}`,
+                method: "PUT",
                 body: data
             }),
         }),
         productGetById: builder.query({
             query: (id) => ({
-                url: `/category/getSingleById/${id}`,
+                url: `/product/singleproduct/${id}`,
                 method: "GET",
 
             }),

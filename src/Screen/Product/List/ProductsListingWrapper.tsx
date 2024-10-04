@@ -1,6 +1,6 @@
 import ProductsListing from './ProductsListing'
 import { useProductGetQuery } from '../../../Slice/productslice'
-import { toast } from 'react-toastify'
+
 import { useNavigate, useParams } from 'react-router-dom'
 
 type Props = {}

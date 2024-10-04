@@ -54,7 +54,7 @@ const InvoiceListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }: 
 
             <div className="overflow-auto max-h-[500px]">
                 <table className="min-w-full bg-white table-auto">
-                    <thead className=" bg-gray-100 sticky top-0 z-10 text-center">
+                    <thead className=" bg-gray-100 sticky top-0  text-center">
                         <tr>
                             <th className="px-4 py-2 border-b-2 border-gray-300 text-left text-base font-semibold text-gray-700">Invoice no</th>
                             <th className="px-4 py-2 border-b-2 border-gray-300 text-left text-base font-semibold text-gray-700">Invoice date</th>
