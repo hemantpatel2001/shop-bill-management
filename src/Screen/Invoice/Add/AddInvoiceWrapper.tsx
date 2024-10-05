@@ -7,19 +7,18 @@ import { useProductGetQuery } from '../../../Slice/productslice';
 
 const initialValues = {
   customerName: '',
-  date: '',
   paymentMethod: '',
   status: '',
   products: [{ productName: '', quantity: 0, price: 0 }],
 };
 
 const handleSubmit = (values) => {
-  console.log("Form Values:", JSON.stringify(values, null, 2)); // Log all values in a readable format
+  console.log("Form Values:", values); // Log all values in a readable format
 };
 
 const invoiceValidation = object({
   customerName: string().required('Select customer name'),
-  date: date().required('Date is required').nullable(),
+
   paymentMethod: string().required("Select payment type"),
   status: string().required("Select payment type"),
   products: array().of(

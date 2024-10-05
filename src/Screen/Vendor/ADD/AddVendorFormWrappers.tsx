@@ -51,7 +51,7 @@ const AddVendorFormWrappers = () => {
 
     };
     return (
-        <Formik initialValues={initialvalues} onSubmit={handleSubmit} validationSchema={vendorValidation } >
+        <Formik initialValues={initialvalues} onSubmit={handleSubmit} validationSchema={vendorValidation} >
             {(formikProps) => {
                 return (
                     < VendorLayout heading={"Add vendor"} buttonName="ADD" formikProps={formikProps} />

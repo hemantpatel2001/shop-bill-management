@@ -6,6 +6,7 @@ import { number, object, string } from "yup";
 import { useNavigate, useParams } from "react-router-dom";
 import { useCategoryGetQuery } from "../../../Slice/categoryslice";
 import { useProductGetByIdQuery, useUpdateproductMutation } from "../../../Slice/productslice";
+import { toast } from "react-toastify";
 
 const EditProductWrapper = () => {
 
@@ -55,8 +56,13 @@ const EditProductWrapper = () => {
 
   const handleSubmit = (values: ProductFormValues) => {
     updateproduct({ data: values, id }).then((res) => {
-      navigate('/shop-bill-management/product-details')
-      console.log(res);
+      if(res?.data.msg==="product update"){
+        navigate('/shop-bill-management/product-details')
+        toast.success(res?.data.msg)
+      }else{
+        toast.error(res?.data.msg)
+      }
+  
     });
 
     console.log(values);

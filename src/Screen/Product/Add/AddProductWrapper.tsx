@@ -58,12 +58,17 @@ const AddProductFormWrapper = () => {
 
   const handleSubmit = (values: ProductFormValues) => {
     addProduct(values).then((res) => {
-      if (res?.data.msg === "product create successful")
+      if (res?.data.msg === "product create successful"){
         toast.success("Product added")
       navigate('/shop-bill-management/product-details')
+        }else{
+          toast.error(res?.data.msg)
+        }
       console.log(res)
-    })
-    console.log(values);
+    }
+    
+  )
+    
   };
 
   return (

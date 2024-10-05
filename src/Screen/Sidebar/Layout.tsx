@@ -1,7 +1,9 @@
-
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
+
+import { CiMenuKebab } from 'react-icons/ci';
+import { IoMdClose } from 'react-icons/io';
 
 const Layout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -14,19 +16,19 @@ const Layout = () => {
         <div className="flex h-screen">
             {/* Sidebar */}
             <div
-                className={`fixed h-full bg-gray-800 text-white transition-transform duration-300 ease-in-out ${
+                className={`fixed h-full text-white transition-transform duration-300 ease-in-out ${
                     isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
                 } md:translate-x-0 w-60 md:w-60 z-10`}
             >
-                <Sidebar toggleSidebar={toggleSidebar} /> {/* Pass the toggleSidebar function here */}
+                <Sidebar toggleSidebar={toggleSidebar} /> 
             </div>
 
             {/* Toggle button for mobile screens */}
             <button
-                className="absolute top-4 left-4 text-2xl z-20 text-white bg-blue-600 p-2 rounded-md md:hidden"
+                className="absolute top-4 left-4 text-4xl z-20  text-black p-2 rounded-md md:hidden"
                 onClick={toggleSidebar}
             >
-                {isSidebarOpen ? '✕' : '☰'}
+                {isSidebarOpen ? <IoMdClose className='ml-44'/>: <CiMenuKebab/>}
             </button>
 
             {/* Main content area */}

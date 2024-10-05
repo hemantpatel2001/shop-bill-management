@@ -6,7 +6,7 @@ import { useProductGetQuery } from '../../../Slice/productslice';
 
 const initialValues = {
     customerName: '',
-    date: '',
+
     paymentMethod: "",
     paidAmount: "",
     dueAmount:"",

@@ -13,8 +13,9 @@ const EditCategoryWrapper = () => {
 
     const [updatecategory] = useUpdatecategoryMutation();
     const { id } = useParams();
-    const { data} = useCategoryGetByIdQuery(id);
-
+    console.log(id)
+    const { data } = useCategoryGetByIdQuery(id);
+console.log(data)
     const initialValues: CategoryFormValues = {
         name: data?.data?.name || '',
     };

@@ -45,7 +45,7 @@ const InvoiceLayout = ({ Heading, formikProps, customerData, productData, button
     const totalPrice = values.products.reduce((total, product) => total + (product.quantity * product.price), 0);
 
     return (
-        <div className='flex justify-center mt-5 h-screen'>
+        <div className='flex justify-center mt-5 '>
             <div className="w-full max-w-3xl h-[550px] p-4 border shadow-xl rounded-lg shadow-slate-300">
                 {/* Heading */}
                 <h1 className="text-2xl mb-4">{Heading}</h1>
@@ -103,18 +103,7 @@ const InvoiceLayout = ({ Heading, formikProps, customerData, productData, button
                         </p>
                     </div>
 
-                    {/* Invoice Date Field */}
-                    <div className="w-1/2 pl-2">
-                        <AtmDateField
-                            label="Date"
-                            name="date"
-                            value={values.date}
-                            onChange={handleChange}
-                        />
-                        <p className="text-red-400 h-2">
-                            <ErrorMessage name="date" />
-                        </p>
-                    </div>
+                
                 </div>
 
                 <input type="hidden" name="customerId" value={values.customerId} />

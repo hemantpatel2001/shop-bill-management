@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apislice = createApi({
     reducerPath: 'apislice',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://192.168.1.9:1000'
+        baseUrl: 'https://wdql6t7t-1000.inc1.devtunnels.ms/'
     }),
     endpoints: (builder) => ({}),
     tagTypes:["customer" ,"product","delete","edit","single",

@@ -40,7 +40,7 @@ const CategoryListWrapper = () => {
 
   const HandleEdit = (id: any) => {
  
-    navigate(`/shop-bill-management/edit-category/:${id}`);
+    navigate(`/shop-bill-management/edit-category/${id}`);
   };
 
   return (
