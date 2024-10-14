@@ -3,7 +3,7 @@ import React from "react";
 const TableCategorySkeleton = () => {
   return (
 
-       <div className="max-w-4xl mx-auto p-6 mt-16 bg-white rounded-md shadow-md">
+       <div className="">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl font-bold text-gray-800"></h1>
         <button

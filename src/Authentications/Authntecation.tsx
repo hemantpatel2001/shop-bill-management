@@ -9,9 +9,7 @@ export const Auth = ({ children }) => {
             const token = localStorage.getItem("auth");
             if (!token) {
                 navigate("/");
-            } else {
-                navigate("/shop-bill-management/customer-details");
-            }
+            } 
         };
 
         // Check authentication on initial render
@@ -24,7 +22,7 @@ export const Auth = ({ children }) => {
         return () => {
             window.removeEventListener("storage", checkAuth);
         };
-    }, [navigate]);
+    }, []);
 
     return <>{children}</>;
 };

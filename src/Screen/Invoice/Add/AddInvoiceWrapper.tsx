@@ -1,31 +1,40 @@
-// import React from 'react';
+import React from 'react';
 import InvoiceLayout from '../Layout/InvoiceLayout';
-import { Form, Formik } from 'formik';
+import { Form, Formik, FormikHelpers } from 'formik';
 import { array, date, number, object, string } from 'yup';
 import { useCustomerGetQuery } from '../../../Slice/customerslice';
 import { useProductGetQuery } from '../../../Slice/productslice';
 
+type Props ={
+  
+}
+
 const initialValues = {
   customerName: '',
-  paymentMethod: '',
-  status: '',
+  invoiceNumber: "",
+  date: new Date().toISOString().split("T")[0], 
+  amountPaid: "",
   products: [{ productName: '', quantity: 0, price: 0 }],
 };
 
-const handleSubmit = (values) => {
-  console.log("Form Values:", values); // Log all values in a readable format
+const handleSubmit = (values:any,{setSubmitting}:FormikHelpers<any>) => {
+  console.log("Form Values:", values);
+  setSubmitting(false)
+
 };
 
 const invoiceValidation = object({
   customerName: string().required('Select customer name'),
-
-  paymentMethod: string().required("Select payment type"),
-  status: string().required("Select payment type"),
+  invoiceNumber: string().required("Enter invoice number"),
+  date: date()
+    .required("Select a date")
+    .max(new Date(), "Future dates are not allowed"),
+  amountPaid: number().required("Enter paid amount"),
   products: array().of(
     object({
       productName: string().required('Enter product name'),
-      quantity: number().required('Quantity is required').positive('').integer('Must be an integer'),
-      price: number().required('Price is required').positive(''),
+      quantity: number().required('Quantity is required').positive('Must be positive').integer('Must be an integer'),
+      price: number().required('Price is required').positive('Must be positive'),
     })
   ).required('At least one product is required'),
 });
@@ -47,7 +56,14 @@ const AddInvoiceWrapper = () => {
             buttonName={"ADD"}
             productData={productData}
             customerData={customerData}
-            formikProps={formikProps}
+            formikProps={{
+              ...formikProps,
+
+              values: {
+                ...formikProps.values,
+                date: formikProps.values.date,
+              },
+            }}
           />
         </Form>
       )}

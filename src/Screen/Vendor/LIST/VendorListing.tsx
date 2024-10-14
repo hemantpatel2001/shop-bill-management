@@ -15,7 +15,7 @@ const VendorListing = ({ data, isLoading, isError, HandleDelete, HandleEdit }: P
 
   if (isLoading) {
     return (
-      <div className='max-w-full lg:max-w-4xl mx-auto p-4 sm:p-6 md:p-8 mt-16 bg-white rounded-md shadow-md'>
+      <div className='max-w-[300px]  md:max-w-full lg:max-w-4xl mx-auto p-4 sm:p-6 md:p-8 mt-16 bg-white rounded-md shadow-md'>
         <Skeleton />
       </div>
     );
@@ -23,15 +23,15 @@ const VendorListing = ({ data, isLoading, isError, HandleDelete, HandleEdit }: P
 
   if (isError) {
     return (
-      <div className="flex justify-center items-center text-red-600 text-2xl sm:text-3xl md:text-4xl p-10 sm:p-20 md:p-44">
+      <div className="flex justify-center  items-center text-red-600 text-2xl sm:text-3xl md:text-4xl p-10 sm:p-20 md:p-44">
         Error fetching vendor's data
       </div>
     );
   }
 
   return (
-    <div className="max-w-full lg:max-w-7xl border mx-auto p-2 sm:p-6 md:p-8 mt-10 bg-white rounded-md shadow-md">
-      <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
+    <div className="max-w-[350px] lg:max-w-7xl border mx-auto p-2 sm:p-6 md:p-8 md:mt-8  mt-28 rounded-md shadow-md">
+      <div className="flex flex-row  md:w-auto w-[320px] justify-between items-baseline mb-6">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-gray-700">Vendors</h1>
         <button
           className="text-sm sm:text-base md:text-lg lg:text-xl text-white bg-green-500 hover:bg-green-600 transition-all duration-300 p-2 rounded-lg mt-4 sm:mt-0"
@@ -43,7 +43,7 @@ const VendorListing = ({ data, isLoading, isError, HandleDelete, HandleEdit }: P
 
       <div className="overflow-auto max-h-[400px]">
         <table className="w-full bg-white table-auto border-gray-300 rounded-lg">
-          <thead className="bg-gray-100 sticky top-0 sm:text-lg md:text-xl lg:text-xl text-center">
+          <thead className="bg-gray-100 sticky top-0 sm:text-lg md:text-xl lg:text-xl  ">
             <tr>
               <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Name</th>
               <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Email</th>
@@ -54,7 +54,7 @@ const VendorListing = ({ data, isLoading, isError, HandleDelete, HandleEdit }: P
           </thead>
           <tbody>
             {data?.data?.slice().reverse().map((vendor: any) => (
-              <tr key={vendor._id} className="hover:bg-gray-50 transition  text-xl duration-100 text-center">
+              <tr key={vendor._id} className="hover:bg-gray-50 transition  text-xl duration-100  ">
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl text-gray-800">{vendor.name}</td>
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl text-gray-800">{vendor.email}</td>
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl  text-gray-800">{vendor.mobile}</td>

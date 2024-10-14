@@ -18,7 +18,7 @@ const CustomerListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }:
     if (isError) return <div className="flex justify-center text-sky-800 text-4xl p-44">Error fetching customers</div>;
 
     return (
-        <div className="max-w-5xl mx-auto p-6 mt-24 sm:mt-14 md:mt-14 border rounded-md shadow-md">
+        <div className="  lg:max-w-5xl mx-auto p-5 mt-24  lg:ml-[300px]  sm:mt-14 md:mt-14 border mr-[11px] ml-[11px] rounded-md shadow-md">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-4xl font-bold text-gray-800">Customer's</h1>
                 <button 

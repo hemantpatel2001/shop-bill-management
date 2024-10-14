@@ -34,8 +34,8 @@ const dummy = [
 
 const InvoiceListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }: Props) => {
     const navigate = useNavigate()
-    console.log(data);
 
+console.log(data)
 
     if (isLoading) return <div className=' max-w-4xl mx-auto p-6 mt-16 bg-white rounded-md shadow-md'>hi</div>;
     if (isError) return <div className="flex justify-center text-sky-800 text-4xl p-44">Error fetching customers</div>;
@@ -65,13 +65,13 @@ const InvoiceListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }: 
                         </tr>
                     </thead>
                     <tbody>
-                        {dummy.slice().reverse().map((customer) => (
+                        {dummy?.slice().reverse().map((customer) => (
                             <tr key={customer._id}>
-                                <td className="px-4 py-3  border-b text-base text-gray-800">{customer.invoicNo}</td>
-                                <td className="px-4 py-3  border-b text-base text-gray-800">{customer.date}</td>
-                                <td className="px-4 py-3  border-b text-base text-gray-800">{customer.status}</td>
+                                <td className="px-4 py-3  border-b text-base text-gray-800">{customer?.invoicNo}</td>
+                                <td className="px-4 py-3  border-b text-base text-gray-800">{customer?.date}</td>
+                                <td className="px-4 py-3  border-b text-base text-gray-800">{customer?.status}</td>
 
-                                <td className="px-4 py-3  border-b text-base text-gray-800">{customer.customerName}</td>
+                                <td className="px-4 py-3  border-b text-base text-gray-800">{customer?.customerName}</td>
 
 
                                 <td className="px-4 py-3  border-b text-base text-gray-800">

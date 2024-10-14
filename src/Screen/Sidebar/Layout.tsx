@@ -16,20 +16,21 @@ const Layout = () => {
         <div className="flex h-screen">
             {/* Sidebar */}
             <div
-                className={`fixed h-full text-white transition-transform duration-300 ease-in-out ${
-                    isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-                } md:translate-x-0 w-60 md:w-60 z-10`}
+                className={`fixed h-full text-white transition-transform duration-150 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                    } md:translate-x-0 w-60 md:w-60 z-10`}
             >
-                <Sidebar toggleSidebar={toggleSidebar} /> 
+                <Sidebar toggleSidebar={toggleSidebar} />
             </div>
 
             {/* Toggle button for mobile screens */}
-            <button
-                className="absolute top-4 left-4 text-4xl z-20  text-black p-2 rounded-md md:hidden"
-                onClick={toggleSidebar}
-            >
-                {isSidebarOpen ? <IoMdClose className='ml-44'/>: <CiMenuKebab/>}
-            </button>
+            <div className=" ">
+                <button 
+                    className="absolute top-4 left-4 text-4xl z-20 text-black p-2 rounded-md md:hidden"
+                    onClick={toggleSidebar}
+                >
+                    {isSidebarOpen ? <IoMdClose className='ml-36 bg-transparent' /> : <CiMenuKebab />}
+                </button></div>
+
 
             {/* Main content area */}
             <div

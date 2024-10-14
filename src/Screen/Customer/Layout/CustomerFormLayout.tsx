@@ -13,7 +13,7 @@ const CustomerFormLayout = ({ formikProps, heading, buttonName, isLoading }: Pro
     const { values, handleChange, handleSubmit, isSubmitting } = formikProps;
 
     return (
-        <div className="flex justify-center items-center mt-9 sticky   lg:mt-6 p-8">
+        <div className="flex justify-center items-center mt-14 sticky   lg:mt-6 p-8">
             <div className="w-full max-w-lg p-8 bg-white border border-gray-200 rounded-lg shadow-md">
                 <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6 text-slate-700">{heading}</h2>
 

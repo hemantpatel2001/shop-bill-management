@@ -10,8 +10,8 @@ const WithOutLogin = ({ children }) => {
 
         if (token) {
 
-            navigate("/layout")
-            window.location.reload();
+            navigate("/shop-bill-management/customer-details")
+          
         }
     },[] )
 

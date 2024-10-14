@@ -6,13 +6,13 @@ type Props = {
     label: string;
     onChange: (event: any) => void;
     placeholder: string;
-    className?: string; 
+    className?: string;
 }
 
-const AtmDateField= ({ name, value, onChange, label, placeholder, className }: Props) => {
+const AtmDateField = ({ name, value, onChange, label, placeholder, className }: Props) => {
     return (
         <div className="flex flex-col gap-1">
-            <label htmlFor={name} className="text-slate-800 text-xl"> {label} </label>
+            <label htmlFor={name} className="text-slate-800 text-2xl"> {label} </label>
 
             <input
                 id={name}
@@ -21,9 +21,9 @@ const AtmDateField= ({ name, value, onChange, label, placeholder, className }: P
                 onChange={onChange}
                 placeholder={placeholder}
                 value={value}
-                className={`border border-gray-400 rounded-lg h-[28px] p-1 w-full  outline-sky-500 ${className || ''}`} 
+                className={`border border-gray-400 rounded-lg h-[32px] p-2 w-full  placeholder:text-gray-500 outline-sky-500 ${className || ''}`}
             />
-           
+
         </div>
     );
 }

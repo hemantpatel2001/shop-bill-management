@@ -15,7 +15,7 @@ const CategoryList = ({ isLoading, isError, HandleEdit, data, HandleDelete }: Pr
 
   if (isLoading) {
     return (
-      <div className='max-w-full lg:max-w-4xl mx-auto p-4 sm:p-6 md:p-8 mt-16 bg-white rounded-md shadow-md'>
+      <div className='max-w-full lg:max-w-4xl mx-auto p-4 sm:p-6 md:p-8 mt-16 rounded-md shadow-md'>
         <TableCategorySkeleton />
       </div>
     );
@@ -43,17 +43,17 @@ const CategoryList = ({ isLoading, isError, HandleEdit, data, HandleDelete }: Pr
 
       <div className="overflow-auto max-w-full max-h-[430px]">
         <table className="w-full bg-white">
-          <thead className="bg-gray-100 sticky top-0 text-base sm:text-lg md:text-xl lg:text-xl text-center">
+          <thead className="bg-gray-100 sticky top-0   sm:text-lg md:text-xl lg:text-xl ">
             <tr>
-              <th className="px-2 sm:px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Category Name</th>
-              <th className="px-2 sm:px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700 text-center">Actions</th>
+              <th className="px-2 sm:px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Category name</th>
+              <th className="px-2 sm:px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700 ">Actions</th>
             </tr>
           </thead>
           <tbody>
             {data?.data?.slice().reverse().map((category) => (
-              <tr key={category._id} className="hover:bg-gray-50 transition duration-200 text-center">
+              <tr key={category._id} className="hover:bg-gray-50 transition duration-200  text-center">
                 <td className="px-2 sm:px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{category.name}</td>
-                <td className="px-2 sm:px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-center">
+                <td className="px-2 sm:px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl ">
                   <button
                     onClick={() => HandleEdit(category._id)}
                     className="px-2 py-1 sm:px-4 sm:py-2 text-blue-500 rounded-md text-3xl hover:text-blue-300 transition-all duration-200 mr-2"
