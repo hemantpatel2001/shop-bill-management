@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { ErrorMessage, FieldArray } from "formik";
 import AtmDateField from "../../../Components/Atoms/AtmDateField/AtmDate";
@@ -14,8 +13,7 @@ type Props = {
 };
 
 const InvoiceLayout = ({ Heading, formikProps, customerData, productData, buttonName }: Props) => {
-    const { values, handleChange, setFieldValue, isSubmitting } = formikProps;
-    const [errorMessage, setErrorMessage] = useState('');
+    const { values, handleChange, setFieldValue, isSubmitting, errors } = formikProps;
 
     useEffect(() => {
         if (values.customerName) {
@@ -38,21 +36,12 @@ const InvoiceLayout = ({ Heading, formikProps, customerData, productData, button
         }
     };
 
-    // Calculate total price
     const totalPrice = values.products?.reduce((total, product) => total + (product.quantity * product.price), 0) || 0;
     const dueAmount = totalPrice - (values.amountPaid || 0);
 
-    useEffect(() => {
-        if (values.amountPaid > totalPrice || values.amountPaid < 0) {
-            setErrorMessage('Amount paid cannot be greater than the total amount.');
-        } else {
-            setErrorMessage('');
-        }
-    }, [totalPrice, values.amountPaid]);
-
     return (
         <div className='flex justify-center mt-10 mx-2 md:mt-5'>
-            <div className="w-full  mb-4  max-w-3xl p-4 border shadow-xl rounded-lg bg-white">
+            <div className="w-full mb-4 max-w-3xl p-4 border shadow-xl rounded-lg bg-white">
                 <h1 className="text-2xl mb-4 text-center">{Heading}</h1>
 
                 <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -118,15 +107,13 @@ const InvoiceLayout = ({ Heading, formikProps, customerData, productData, button
                     </div>
                 </div>
 
-                <input type="hidden" name="customerId" value={values.customerId} />
-
                 <h1 className="text-2xl mb-2">Products</h1>
                 <FieldArray name="products">
                     {({ push, remove }) => (
                         <div>
                             <div className="overflow-y-auto h-48 border border-gray-300 mb-4">
                                 <table className="min-w-full table-auto">
-                                    <thead className="bg-gray-100 sticky top-0  text-center">
+                                    <thead className="bg-gray-100 sticky top-0 text-center">
                                         <tr>
                                             <th className="px-4 py-2 text-left">Product Name</th>
                                             <th className="px-4 py-2 text-left">Quantity</th>
@@ -224,8 +211,9 @@ const InvoiceLayout = ({ Heading, formikProps, customerData, productData, button
                             name="amountPaid"
                             className="block w-full p-2 border border-gray-300 rounded-md"
                         />
-                        {errorMessage && (
-                            <p className="text-red-400 mt-2 h-4">{errorMessage}</p>
+                        {errors.amountPaid && (
+
+                      <p className="text-red-400 mt-2 h-4">  {errors.amountPaid}   </p>
                         )}
                     </div>
                     <div>
@@ -242,7 +230,7 @@ const InvoiceLayout = ({ Heading, formikProps, customerData, productData, button
                 <div>
                     <button
                         type="submit"
-                        disabled={isSubmitting}
+                        disabled={isSubmitting || !!errors.amountPaid}
                         className='text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium w-full rounded-lg text-lg px-5 py-2.5 text-center mt-6'
                     >
                         {isSubmitting ? 'Submitting...' : buttonName}
