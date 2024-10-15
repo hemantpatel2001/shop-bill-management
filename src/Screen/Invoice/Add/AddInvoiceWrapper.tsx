@@ -13,8 +13,8 @@ const initialValues = {
   customerName: '',
   invoiceNumber: "",
   date: new Date().toISOString().split("T")[0], 
-  amountPaid: "",
-  products: [{ productName: '', quantity: 0, price: 0 }],
+  amountPaid: "0",
+  products: [{ productName: '', quantity: 1, price: 0 }],
 };
 
 const handleSubmit = (values:any,{setSubmitting}:FormikHelpers<any>) => {

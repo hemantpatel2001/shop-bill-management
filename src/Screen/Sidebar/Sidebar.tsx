@@ -1,73 +1,66 @@
+import React from 'react';
+import { FaRegArrowAltCircleLeft } from 'react-icons/fa';
+import { IoMdClose } from 'react-icons/io';
+import { RiCloseCircleFill } from 'react-icons/ri';
+import { Link, useNavigate } from 'react-router-dom';
 
-import { FaFileInvoiceDollar, FaUserFriends } from 'react-icons/fa';
-import { FaWeightScale } from 'react-icons/fa6';
-import { IoLogOut } from 'react-icons/io5';
-import { MdBusinessCenter, MdCategory } from 'react-icons/md';
-import { useNavigate, Link } from 'react-router-dom';
+const Sidebar = ({ toggleSidebar }) => {
 
-type SidebarProps = {
-    toggleSidebar: () => void;
-};
-
-const Sidebar = ({ toggleSidebar }: SidebarProps) => {
     const navigate = useNavigate();
 
     const HandleLogout = () => {
         localStorage.clear();
         navigate("/");
     };
-
     return (
-        
-        <div className="w-[220px] h-screen bg-gray-300 text-gray-800 shadow-lg text-2xl flex flex-col pl-8 gap-2">
-            <div className="p-4 mt-4 cursor-pointer">
+        <div className="w-[230px] h-screen bg-gray-300 text-gray-800 shadow-lg text-2xl flex flex-col pl-8 gap-2">
+            {/* Close Button */}
+            <div className="flex justify-between items-center p-4 md:hidden">
+              
+                <button className="text-gray-800 " onClick={toggleSidebar}>
+                    <FaRegArrowAltCircleLeft className='text-3xl ml-32' />
+                </button>
+            </div>
+
+            <div className="p-2  cursor-pointer">
                 <img className="w-28 h-32" src="https://salescrm.aarohiweblogger.com/assets/img/brand/logo.png" alt="Aarohi sales" />
             </div>
 
-            {/* Customer */}
+            {/* Navigation Links */}
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="customer-details" onClick={toggleSidebar}>
-                    <span className='flex items-center gap-2'><FaUserFriends /> Customers</span>
+                    <span className='flex items-center gap-2'>Customers</span>
                 </Link>
             </div>
-            < hr className='border-0.5 border-gray-800' />
-            {/* Category */}
+            <hr className='border-0.5 border-gray-800' />
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="category-details" onClick={toggleSidebar}>
-                    <span className='flex items-center gap-2'> < MdCategory />   Category</span>
-
+                    <span className='flex items-center gap-2'>Category</span>
                 </Link>
             </div>
-            < hr className='border-0.5 border-gray-800' />
-
-            {/* Vendor */}
+            <hr className='border-0.5 border-gray-800' />
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="vendors-details" onClick={toggleSidebar}>
-                    <span className='flex items-center gap-2'> <MdBusinessCenter />  Vendor</span>
+                    <span className='flex items-center gap-2'>Vendor</span>
                 </Link>
             </div>
-            < hr className='border-0.5 border-gray-800' />
-            {/* Invoice */}
-            {/* Products */}
+            <hr className='border-0.5 border-gray-800' />
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="product-details" onClick={toggleSidebar}>
-                    <span className='flex items-center gap-2'>  <FaWeightScale />   Product</span>
-
+                    <span className='flex items-center gap-2'>Product</span>
                 </Link>
             </div>
-            < hr className='border-0.5 border-gray-800' />
+            <hr className='border-0.5 border-gray-800' />
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="invoice-details" onClick={toggleSidebar}>
-                    <span className='flex items-center gap-2'>  <FaFileInvoiceDollar />Invoice</span>
-
+                    <span className='flex items-center gap-2'>Invoice</span>
                 </Link>
             </div>
-            < hr className='border-0.5 border-gray-800' />
-            {/* Logout */}
+            <hr className='border-0.5 border-gray-800' />
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
-                <span className='flex items-center gap-2'> <IoLogOut />
-                    <button onClick={HandleLogout}>  Logout</button></span>
-
+                <span className='flex items-center gap-2'>
+                    <button onClick={HandleLogout}>Logout</button>
+                </span>
             </div>
         </div>
     );

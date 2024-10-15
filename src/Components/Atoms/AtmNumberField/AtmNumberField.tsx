@@ -1,19 +1,52 @@
-import React from 'react'
+// import React from 'react'
+
+// type Props = {
+//     value: string;
+//     name: string;
+//     label: string;
+//     onChange: (event: any) => void;
+//     placeholder: string;
+//     className?: string; 
+//     disabled:any
+// }
+
+// const AtmNumberField = ({ name, value, onChange, label, placeholder, className }: Props) => {
+//     return (
+//         <div className="flex flex-col gap-1">
+//             <label htmlFor={name} className="text-slate-800 text-xl"> {label} </label>
+
+//             <input
+//                 id={name}
+//                 name={name}
+//                 type="number"
+//                 onChange={onChange}
+//                 placeholder={placeholder}
+//                 value={value}
+           
+//                 className={`border border-gray-400 rounded-lg h-[28px] p-1 w-full  outline-sky-500 ${className || ''}`} 
+//             />
+           
+//         </div>
+//     );
+// }
+
+// export default AtmNumberField
+import React from 'react';
 
 type Props = {
     value: string;
     name: string;
     label: string;
-    onChange: (event: any) => void;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     placeholder: string;
     className?: string; 
+    disabled?: boolean; 
 }
 
-const AtmNumberField = ({ name, value, onChange, label, placeholder, className }: Props) => {
+const AtmNumberField = ({ name, value, onChange, label, placeholder, className, disabled }: Props) => {
     return (
         <div className="flex flex-col gap-1">
-            <label htmlFor={name} className="text-slate-800 text-xl"> {label} </label>
-
+            <label htmlFor={name} className="text-slate-800 text-xl">{label}</label>
             <input
                 id={name}
                 name={name}
@@ -21,11 +54,11 @@ const AtmNumberField = ({ name, value, onChange, label, placeholder, className }
                 onChange={onChange}
                 placeholder={placeholder}
                 value={value}
-                className={`border border-gray-400 rounded-lg h-[28px] p-1 w-full  outline-sky-500 ${className || ''}`} 
+                disabled={disabled}
+                className={`border border-gray-400 rounded-lg h-[28px] p-1 w-full outline-sky-500 ${className || ''}`} 
             />
-           
         </div>
     );
 }
 
-export default AtmNumberField
+export default AtmNumberField;
