@@ -19,14 +19,16 @@ import InvoiceListingWrapper from '../Screen/invoice/List/InvoiceListingWrapper'
 import { Auth } from '../Authentications/Authntecation'
 import EditProductWrapper from '../Screen/Product/Edit/EditProductWrapper'
 import WithOutLogin from '../Authentications/WithoutLoging'
+import DueAmountLayout from '../Screen/dueamount/Layout/dueAmountLayout'
+import AddDueAmountWrapper from '../Screen/dueamount/Add/addDueAmountWrapper'
 
 export const PageRoute = () => {
   const router = createBrowserRouter([
 
-    { path: "/", element: <WithOutLogin><LoginWrapper /></WithOutLogin> },
+    { path: "/", element: <LoginWrapper /> },
     {
       path: "/shop-bill-management",
-      element: <Auth><Layout /></Auth>,
+      element: <Layout />,
 
       children: [
         {
@@ -64,7 +66,8 @@ export const PageRoute = () => {
         { path: 'edit-vendore/:id', element: <EditVendorsFormWrapper /> },
         { path: "invoice-details", element: <InvoiceListingWrapper /> },
         { path: 'add-invoice', element: <AddInvoiceWrapper /> },
-        { path: 'edit-invoice', element: <EditInvoicesWrapper /> }
+        { path: 'edit-invoice', element: <EditInvoicesWrapper /> },
+        {path:"due-amount" , element:<AddDueAmountWrapper/> }
       ]
     }
   ])

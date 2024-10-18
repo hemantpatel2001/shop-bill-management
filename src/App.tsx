@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div>
       <Provider store={store} >
-        <PageRoute />
+    <PageRoute/>
       </Provider>
       <ToastContainer />
     </div>

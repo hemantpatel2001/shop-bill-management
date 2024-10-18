@@ -29,7 +29,7 @@ const AddCategoryWrapper = () => {
             
           if(res.data?.msg==="category added successfully"){
             toast.success(res.data?.msg)
-            navigate("category-details")
+            navigate("/shop-bill-management/category-details")
             resetForm()
             
         setSubmitting(false)

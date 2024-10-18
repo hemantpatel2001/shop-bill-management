@@ -44,7 +44,7 @@ const VendorListing = ({ data, isLoading, isError, HandleDelete, HandleEdit }: P
       <div className="overflow-auto max-h-[400px]">
         <table className="w-full bg-white table-auto border-gray-300 rounded-lg">
           <thead className="bg-gray-100 sticky top-0 sm:text-lg md:text-xl lg:text-xl  ">
-            <tr>
+            <tr className="text-left">
               <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Name</th>
               <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Email</th>
               <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Mobile</th>
@@ -54,7 +54,7 @@ const VendorListing = ({ data, isLoading, isError, HandleDelete, HandleEdit }: P
           </thead>
           <tbody>
             {data?.data?.slice().reverse().map((vendor: any) => (
-              <tr key={vendor._id} className="hover:bg-gray-50 transition  text-xl duration-100  ">
+              <tr key={vendor._id} className="hover:bg-gray-50 transition  text-xl duration-100 ">
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl text-gray-800">{vendor.name}</td>
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl text-gray-800">{vendor.email}</td>
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl  text-gray-800">{vendor.mobile}</td>

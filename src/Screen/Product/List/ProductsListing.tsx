@@ -7,7 +7,7 @@ type Props = {
   isLoading: boolean,
   isError: boolean,
   HandleEdit: (id: string) => void,
-  HandleDelete: (id: string) => void
+  HandleDelete?: (id: string) => void
 }
 
 const ProductsListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }: Props) => {
@@ -39,8 +39,8 @@ const ProductsListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }:
 
       <div className="overflow-auto max-h-[400px]">
         <table className="w-full bg-white table-auto  border-gray-300 rounded-lg">
-          <thead className="bg-gray-100 sticky  top-0 sm:text-lg md:text-xl lg:text-xl text-center">
-            <tr>
+          <thead className="bg-gray-100 sticky  top-0 sm:text-lg md:text-xl lg:text-xl ">
+            <tr className="text-left">
               <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Product Name</th>
               <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Product Code</th>
               <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Category</th>

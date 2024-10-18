@@ -11,7 +11,7 @@ export type CategoryFormValues = {
 const EditCategoryWrapper = () => {
     const navigate = useNavigate();
 
-    const [updatecategory] = useUpdatecategoryMutation();
+    const [updatecategory,{isLoading}] = useUpdatecategoryMutation();
     const { id } = useParams();
     console.log(id)
     const { data } = useCategoryGetByIdQuery(id);
@@ -54,6 +54,7 @@ console.log(data)
                     heading={"Update category"}
                     buttonName="UPDATE"
                     formikProps={formikProps}
+                   isLoading={isLoading}
                 />
             )}
         </Formik>

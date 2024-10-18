@@ -3,9 +3,9 @@ import React from 'react'
 type Props = {
     value: string;
     name: string;
-    label: string;
+    label?: string;
     onChange: (event: any) => void;
-    placeholder: string;
+    placeholder?: string;
     className?: string;
 }
 

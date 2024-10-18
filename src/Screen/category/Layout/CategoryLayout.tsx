@@ -6,9 +6,10 @@ type Props = {
     formikProps: FormikProps<CategoryFormValues>;
     heading: string;
     buttonName: string;
+    isLoding:string
 };
 
-const CategoryLayout = ({ formikProps, heading, buttonName }: Props) => {
+const CategoryLayout = ({ formikProps, heading, buttonName,isLoding }: Props) => {
     const { values, handleChange, handleSubmit, isSubmitting } = formikProps;
 
     return (
@@ -29,7 +30,7 @@ const CategoryLayout = ({ formikProps, heading, buttonName }: Props) => {
                             onChange={handleChange}
                             className="w-full p-2 text-base sm:text-lg md:text-xl"
                         />
-                        <p className="text-red-400 h-2">
+                        <p  >
                             <ErrorMessage name="name" />
                         </p>
                     </div>
@@ -41,7 +42,7 @@ const CategoryLayout = ({ formikProps, heading, buttonName }: Props) => {
                             className="w-full h-12 mt-4 bg-blue-600 hover:bg-blue-500 text-white text-lg sm:text-xl font-medium rounded-lg transition-colors duration-300"
                             disabled={isSubmitting}
                         >
-                            {isSubmitting ? 'Submitting...' : buttonName}
+                            {isSubmitting||isLoding ? 'Submitting...' : buttonName}
                         </button>
                     </div>
                 </form>
