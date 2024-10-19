@@ -32,9 +32,9 @@ const AddProductFormWrapper = () => {
     MRP: number()
       .required('Enter MRP')
       .positive('Must be a positive number.')
-      .test('MRP-greater-than-SP-CP', 'MRP must be more than selling price and cost price', function (value) {
+      .test('MRP-greater-than-SP-CP', 'MRP must be more than sp and cp', function (value) {
         const { sellingPrice, costPrice } = this.parent;
-        return value > sellingPrice && value > costPrice;
+        return value >= sellingPrice && value > costPrice;
       }),
     categoryId: string().required('Select category'),
     img: string(),
@@ -49,7 +49,7 @@ const AddProductFormWrapper = () => {
     costPrice: number()
       .required('Enter cost price')
       .positive('Must be a positive number.')
-      .test('CP-is-highest', 'Cost price must be the highest number', function (value) {
+      .test('CP-is-highest', 'Cost price less then mrp and sp', function (value) {
         const { MRP, sellingPrice } = this.parent;
         return value < MRP && value < sellingPrice;
       })

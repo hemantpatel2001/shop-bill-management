@@ -1,9 +1,12 @@
 import React from 'react';
-import { BiSolidCategory } from 'react-icons/bi';
+import { AiFillProduct } from 'react-icons/ai';
+import { BiLogOutCircle, BiSolidCategory, BiSolidLogOutCircle } from 'react-icons/bi';
 import { BsPeopleFill } from 'react-icons/bs';
-import { FaRegArrowAltCircleLeft } from 'react-icons/fa';
+import { FaFileInvoiceDollar, FaRegArrowAltCircleLeft } from 'react-icons/fa';
 import { IoMdClose } from 'react-icons/io';
+import { PiHandshakeBold } from 'react-icons/pi';
 import { RiCloseCircleFill } from 'react-icons/ri';
+import { TbTransactionRupee } from 'react-icons/tb';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Sidebar = ({ toggleSidebar }) => {
@@ -31,43 +34,43 @@ const Sidebar = ({ toggleSidebar }) => {
             {/* Navigation Links */}
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="customer-details" onClick={toggleSidebar}>
-              <span className='flex  items-center gap-1'> <BsPeopleFill />  <span className='flex items-center gap-2'> Customers</span></span>
+                    <span className='flex  items-center gap-1'> <BsPeopleFill />  <span className='flex items-center gap-2'> Customers</span></span>
                 </Link>
             </div>
             <hr className='border-0.5 border-gray-800' />
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="category-details" onClick={toggleSidebar}>
-                <span className='flex  items-center gap-1'> <BiSolidCategory />  <span className='flex items-center gap-2'>Category</span> </span>
+                    <span className='flex  items-center gap-1'> <BiSolidCategory />  <span className='flex items-center gap-2'>Category</span> </span>
                 </Link>
             </div>
             <hr className='border-0.5 border-gray-800' />
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="vendors-details" onClick={toggleSidebar}>
-                    <span className='flex items-center gap-2'>Vendor</span>
+                <span className='flex  items-center gap-1'>  <PiHandshakeBold/>       <span className='flex items-center gap-2'>Vendor</span></span>
                 </Link>
             </div>
             <hr className='border-0.5 border-gray-800' />
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="product-details" onClick={toggleSidebar}>
-                    <span className='flex items-center gap-2'>Product</span>
+                    <span className='flex  items-center gap-1'>   <AiFillProduct />    <span className='flex items-center gap-2'>Product</span> </span>
                 </Link>
             </div>
             <hr className='border-0.5 border-gray-800' />
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="invoice-details" onClick={toggleSidebar}>
-                    <span className='flex items-center gap-2'>Invoice</span>
+                    <span className='flex  items-center gap-1'>     <FaFileInvoiceDollar />  <span className='flex items-center gap-2'>Invoice</span> </span>
                 </Link>
             </div>
             <hr className='border-0.5 border-gray-800' />
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="transaction" onClick={toggleSidebar}>
-                    <span className='flex items-center gap-2'>Transaction</span>
+                    <span className='flex  items-center gap-1'>    <TbTransactionRupee />    <span className='flex items-center gap-2'>Transaction</span></span>
                 </Link>
             </div>
             <hr className='border-0.5 border-gray-800' />
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
-                <span className='flex items-center gap-2'>
-                    <button onClick={HandleLogout}>Logout</button>
+                <span className='flex items-center gap-2'> <BiLogOutCircle />        <button onClick={HandleLogout}>Logout</button>
+
                 </span>
             </div>
         </div>
