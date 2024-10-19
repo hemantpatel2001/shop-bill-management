@@ -22,19 +22,20 @@ import WithOutLogin from '../Authentications/WithoutLoging'
 import DueAmountLayout from '../Screen/dueamount/Layout/dueAmountLayout'
 import AddDueAmountWrapper from '../Screen/dueamount/Add/addDueAmountWrapper'
 import ViewinvoiceWrapper from '../Screen/invoice/Viewinvoice/ViewInvoiceform/viewinvoiceWrapper'
+import TransactionsListingWrapper from '../Screen/transaction/List/TransactionsListingWrapper'
 
 export const PageRoute = () => {
   const router = createBrowserRouter([
 
-    { path: "/", element: <LoginWrapper /> },
+    { path: "/", element: <WithOutLogin><LoginWrapper /></WithOutLogin> },
     {
       path: "/shop-bill-management",
-      element: <Layout />,
+      element: <Auth><Layout /></Auth>,
 
       children: [
         {
           path: "add-customer",
-          element:<AddCustomerFormWrapper />
+          element: <AddCustomerFormWrapper />
         },
         {
           path: "customer-details",
@@ -52,24 +53,74 @@ export const PageRoute = () => {
           path: "add-category",
           element: <AddCategoryWrapper />
         },
-        { path: "edit-category", 
-          element: <EditCategoryWrapper /> 
+        {
+          path: "edit-category",
+          element: <EditCategoryWrapper />
         },
-        { path: "category-details", element: <CategoryListWrapper /> },
-        { path: 'edit-category/:id', element: <EditCategoryWrapper /> },
-        { path: "add-Product", element: <AddProductWrapper /> },
-        { path: "edit-product", element: <EditProductWrapper /> },
-        { path: 'edit-product/:id', element: <EditProductWrapper /> },
-        { path: "Product-details", element: <ProductsListingWrapper /> },
-        { path: "add-vendor", element: <AddVendorFormWrappers /> },
-        { path: "edit-vendor", element: <EditVendorsFormWrapper /> },
-        { path: "vendors-details", element: <VendorListingWrapper /> },
-        { path: 'edit-vendore/:id', element: <EditVendorsFormWrapper /> },
-        { path: "invoice-details", element: <InvoiceListingWrapper /> },
-        { path: 'add-invoice', element: <AddInvoiceWrapper /> },
-        { path: 'edit-invoice', element: <EditInvoicesWrapper /> },
-        {path:"due-amount" , element:<AddDueAmountWrapper/> },
-        {path:"view-invoice" ,element:<ViewinvoiceWrapper/>}
+        {
+          path: "category-details",
+          element: <CategoryListWrapper />
+        },
+        {
+          path: 'edit-category/:id',
+          element: <EditCategoryWrapper />
+        },
+        {
+          path: "add-Product",
+          element: <AddProductWrapper />
+        },
+        {
+          path: "edit-product",
+          element: <EditProductWrapper />
+        },
+        {
+          path: 'edit-product/:id'
+          , element: <EditProductWrapper />
+        },
+        {
+          path: "Product-details",
+          element: <ProductsListingWrapper />
+        },
+        {
+          path: "add-vendor",
+          element: <AddVendorFormWrappers />
+        },
+        {
+          path: "edit-vendor",
+          element: <EditVendorsFormWrapper />
+        },
+        {
+          path: "vendors-details",
+          element: <VendorListingWrapper />
+        },
+        {
+          path: 'edit-vendore/:id',
+          element: <EditVendorsFormWrapper />
+        },
+        {
+          path: "invoice-details",
+          element: <InvoiceListingWrapper />
+        },
+        {
+          path: 'add-invoice',
+          element: <AddInvoiceWrapper />
+        },
+        {
+          path: 'edit-invoice',
+          element: <EditInvoicesWrapper />
+        },
+        {
+          path: "due-amount",
+          element: <AddDueAmountWrapper />
+        },
+        {
+          path: "view-invoice",
+          element: <ViewinvoiceWrapper />
+        },
+        {
+          path: "transaction",
+          element: <TransactionsListingWrapper />
+        }
       ]
     }
   ])

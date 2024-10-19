@@ -8,6 +8,6 @@ export const apislice = createApi({
     endpoints: (builder) => ({}),
     tagTypes: ["customer", "product", "delete", "edit", "single",
         "categoryDelte", "categoryadd", "editcategory", "singleCategory",
-        "VendorAdd", "vendoreEdit", "singlevendor"
+        "VendorAdd", "vendoreEdit", "singlevendor","ProductEdit","singleProduct"
     ]
 })

@@ -10,8 +10,12 @@ type Props = {
   HandleDelete?: (id: string) => void
 }
 
+const capitalizeFirstLetter = (string: string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 const ProductsListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }: Props) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   if (isLoading) return (
     <div className='max-w-full lg:max-w-4xl mx-auto p-4 sm:p-6 md:p-8 mt-16 bg-white rounded-md shadow-md'>
@@ -53,9 +57,9 @@ const ProductsListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }:
           <tbody>
             {data?.data?.slice().reverse().map((product) => (
               <tr key={product._id} className="hover:bg-gray-50 transition duration-100 ">
-                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.productName}</td>
-                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.productCode}</td>
-                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.categoryId?.name}</td>
+                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{capitalizeFirstLetter(product.productName)}</td>
+                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{capitalizeFirstLetter(product.productCode)}</td>
+                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{capitalizeFirstLetter(product.categoryId?.name)}</td>
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.costPrice}</td>
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.MRP}</td>
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.sellingPrice}</td>
@@ -64,14 +68,8 @@ const ProductsListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }:
                     onClick={() => HandleEdit(product._id)}
                     className="px-2 py-1 sm:px-4 sm:py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-all duration-200 mr-2"
                   >
-                      <BiEdit />
+                    <BiEdit />
                   </button>
-                  {/* <button
-                    onClick={() => HandleDelete(product._id)}
-                    className="px-2 py-1 sm:px-4 sm:py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-all duration-200"
-                  >
-                    DELETE
-                  </button> */}
                 </td>
               </tr>
             ))}

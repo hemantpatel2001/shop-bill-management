@@ -94,7 +94,7 @@ const InvoiceListing = ({ data, isLoading, isError, HandleEdit, HandlePayDue, Ha
                                         onClick={() => HandleEdit(customer._id)}
                                         className="px-2 py-1 bg-blue-500 text-white rounded-md mr-2 hover:bg-blue-600 transition-all"
                                     >
-                                        EDIT
+                                        Edit
                                     </button>
                                     <button
                                         onClick={() => HandleView(customer._id)}
@@ -107,7 +107,7 @@ const InvoiceListing = ({ data, isLoading, isError, HandleEdit, HandlePayDue, Ha
                                         onClick={() => HandlePayDue(customer._id)}
                                         className="px-2 py-1 bg-green-500 text-white rounded-md mr-2 hover:bg-green-600 transition-all"
                                     >
-                                        Pay due
+                                        Pay in
                                     </button>
                                     {/* <button
                                         onClick={() => HandleDelete(customer._id)}

@@ -23,7 +23,7 @@ const dummy = [
 
 const VeiwinvoiceLayout = () => {
     return (
-        <div className="max-w-3xl mx-auto p-8 border-2 border-gray-200 rounded font-sans shadow-lg">
+        <div className="max-w-3xl mx-auto p-8 border-2 border-gray-200 rounded font-sans shadow-lg mt-24 ">
             {/* invoice */}
             <div className='flex justify-between items-center border-b-4 p-2'>
                 <span>
@@ -73,12 +73,20 @@ const VeiwinvoiceLayout = () => {
                             ))
                         )}
                     </tbody>
+
                 </table>
+
+                <div className=' flex gap-1 ml-[180px] sm:ml-[180px] md:ml-[180px] lg:ml-[300px] mt-4'>
+                    <span className='text-lg font-bold text-gray-600'>
+                        Grand total :
+                    </span>
+                    <span className='text-lg font-sans'>
+                        {dummy[0].subTotal}
+                    </span>
+                </div>
             </div>
 
-            <div className=' flex gap-1 ml-[300px] mt-4'>
-                <span className='text-lg font-bold text-gray-600'>Grand total : </span> <span className='text-lg font-sans'>{dummy[0].subTotal}</span>
-            </div>
+
         </div>
     );
 };

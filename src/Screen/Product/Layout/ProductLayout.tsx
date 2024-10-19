@@ -135,7 +135,7 @@ const ProductLayout = ({ formikProps, heading, buttonName, data, isEdit }) => {
                                 className="border rounded bg-blue-600 mt-4 w-full h-12 p-3 font-light text-xl text-white disabled:opacity-50"
                                 disabled={isSubmitting}
                             >
-                                {buttonName}
+                               {isSubmitting? "submiting... " : buttonName } 
                             </button>
                         </div>
                     </form>

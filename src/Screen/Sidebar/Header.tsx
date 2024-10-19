@@ -4,9 +4,9 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 
 const Header = ({ toggleSidebar }) => {
     return (
-        <header className="flex items-center justify-between p-4 md:hidden bg-gray-800 text-white z-20">
+        <header className="flex items-center justify-between p-4  bg-gray-800 text-white z-20">
             <button 
-                className="text-4xl rounded-md md:hidden"
+                className="text-4xl rounded-md "
                 onClick={toggleSidebar}
             >
                 <GiHamburgerMenu />

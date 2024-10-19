@@ -1,4 +1,6 @@
 import React from 'react';
+import { BiSolidCategory } from 'react-icons/bi';
+import { BsPeopleFill } from 'react-icons/bs';
 import { FaRegArrowAltCircleLeft } from 'react-icons/fa';
 import { IoMdClose } from 'react-icons/io';
 import { RiCloseCircleFill } from 'react-icons/ri';
@@ -16,7 +18,7 @@ const Sidebar = ({ toggleSidebar }) => {
         <div className="w-[230px] h-screen bg-gray-300 text-gray-800 shadow-lg text-2xl flex flex-col pl-8 gap-2">
             {/* Close Button */}
             <div className="flex justify-between items-center p-4 md:hidden">
-              
+
                 <button className="text-gray-800 " onClick={toggleSidebar}>
                     <FaRegArrowAltCircleLeft className='text-3xl ml-32' />
                 </button>
@@ -29,13 +31,13 @@ const Sidebar = ({ toggleSidebar }) => {
             {/* Navigation Links */}
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="customer-details" onClick={toggleSidebar}>
-                    <span className='flex items-center gap-2'>Customers</span>
+              <span className='flex  items-center gap-1'> <BsPeopleFill />  <span className='flex items-center gap-2'> Customers</span></span>
                 </Link>
             </div>
             <hr className='border-0.5 border-gray-800' />
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="category-details" onClick={toggleSidebar}>
-                    <span className='flex items-center gap-2'>Category</span>
+                <span className='flex  items-center gap-1'> <BiSolidCategory />  <span className='flex items-center gap-2'>Category</span> </span>
                 </Link>
             </div>
             <hr className='border-0.5 border-gray-800' />
@@ -54,6 +56,12 @@ const Sidebar = ({ toggleSidebar }) => {
             <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
                 <Link to="invoice-details" onClick={toggleSidebar}>
                     <span className='flex items-center gap-2'>Invoice</span>
+                </Link>
+            </div>
+            <hr className='border-0.5 border-gray-800' />
+            <div className="p-4 cursor-pointer hover:bg-blue-700 font-semibold">
+                <Link to="transaction" onClick={toggleSidebar}>
+                    <span className='flex items-center gap-2'>Transaction</span>
                 </Link>
             </div>
             <hr className='border-0.5 border-gray-800' />

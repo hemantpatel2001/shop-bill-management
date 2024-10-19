@@ -19,7 +19,7 @@ const customerslice = apislice.injectEndpoints({
                 method: "GET",
                
             }),
-            providesTags:["product"]
+            providesTags:["product","ProductEdit"]
         }),
         updateproduct: builder.mutation({
             query: ({ id, data }) => ({
@@ -27,6 +27,7 @@ const customerslice = apislice.injectEndpoints({
                 method: "PUT",
                 body: data
             }),
+            invalidatesTags:["ProductEdit","singleProduct"]
         }),
         productGetById: builder.query({
             query: (id) => ({
@@ -34,7 +35,7 @@ const customerslice = apislice.injectEndpoints({
                 method: "GET",
 
             }),
-          
+     providesTags:["singleProduct"]
         }),
 
     
