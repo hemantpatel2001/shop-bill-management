@@ -45,9 +45,9 @@ const invoiceValidation = object({
 });
 
 const AddInvoiceWrapper = () => {
-  const { data: customerData } = useCustomerGetQuery();
+  const { data: customerData  } = useCustomerGetQuery();
   const { data: productData } = useProductGetQuery();
-  const [addInvoce] = useInvoiceAddMutation()
+  const [addInvoce,{}] = useInvoiceAddMutation()
   const navigate = useNavigate()
 
 

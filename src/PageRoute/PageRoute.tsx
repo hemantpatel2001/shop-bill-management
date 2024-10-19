@@ -21,6 +21,7 @@ import EditProductWrapper from '../Screen/Product/Edit/EditProductWrapper'
 import WithOutLogin from '../Authentications/WithoutLoging'
 import DueAmountLayout from '../Screen/dueamount/Layout/dueAmountLayout'
 import AddDueAmountWrapper from '../Screen/dueamount/Add/addDueAmountWrapper'
+import ViewinvoiceWrapper from '../Screen/invoice/Viewinvoice/ViewInvoiceform/viewinvoiceWrapper'
 
 export const PageRoute = () => {
   const router = createBrowserRouter([
@@ -67,7 +68,8 @@ export const PageRoute = () => {
         { path: "invoice-details", element: <InvoiceListingWrapper /> },
         { path: 'add-invoice', element: <AddInvoiceWrapper /> },
         { path: 'edit-invoice', element: <EditInvoicesWrapper /> },
-        {path:"due-amount" , element:<AddDueAmountWrapper/> }
+        {path:"due-amount" , element:<AddDueAmountWrapper/> },
+        {path:"view-invoice" ,element:<ViewinvoiceWrapper/>}
       ]
     }
   ])

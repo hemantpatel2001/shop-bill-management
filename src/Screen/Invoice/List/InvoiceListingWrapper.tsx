@@ -14,7 +14,7 @@ const InvoiceListingWrapper = (props: Props) => {
       console.log("edit")
   }
   const HandleView=()=>{
-    console.log("Veiw")
+ navigate("/shop-bill-management/view-invoice")
 }
   return (
     <div><InvoiceListing   HandlePayDue={ HandlePayDue}  HandleEdit={ HandleEdit}  HandleView={ HandleView}/></div>
