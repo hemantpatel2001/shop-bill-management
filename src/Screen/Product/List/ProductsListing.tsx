@@ -18,7 +18,7 @@ const ProductsListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }:
   const navigate = useNavigate();
 
   if (isLoading) return (
-    <div className='max-w-full lg:max-w-4xl mx-auto p-4 sm:p-6 md:p-8 mt-16 bg-white rounded-md shadow-md'>
+    <div className='max-w-full lg:max-w-4xl mx-auto p-4 sm:p-6 md:p-8 mt-16 border bg-white rounded-md shadow-md'>
       <Skeleton />
     </div>
   );

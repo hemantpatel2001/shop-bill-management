@@ -12,7 +12,7 @@ const ProductsListingWrapper = (props: Props) => {
   const HandleEdit = (id) => {
     navigate(`/shop-bill-management/edit-product/${id}`)
   }
-  console.log(data);
+
 
 
   return (

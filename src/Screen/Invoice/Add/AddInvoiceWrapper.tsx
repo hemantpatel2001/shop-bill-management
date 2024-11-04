@@ -27,7 +27,7 @@ const invoiceValidation = object({
     .max(new Date(), "Future dates are not allowed"),
   paidAmount: number()
     .required("Enter paid amount")
-    .min(0, "Must be greater than or equal to 0") // No need for matches, min() handles this
+    .min(0, "Must be greater than or equal to 0") 
     .test('amount-paid', 'Amount paid must be less than or equal to total price', function (paidAmount) {
       const { products } = this.parent;
       const totalPrice = products.reduce((total, product) => total + (product.price * product.quantity), 0)||0;
@@ -47,7 +47,7 @@ const invoiceValidation = object({
 const AddInvoiceWrapper = () => {
   const { data: customerData  } = useCustomerGetQuery();
   const { data: productData } = useProductGetQuery();
-  const [addInvoce,{}] = useInvoiceAddMutation()
+  const [addInvoce] = useInvoiceAddMutation()
   const navigate = useNavigate()
 
 

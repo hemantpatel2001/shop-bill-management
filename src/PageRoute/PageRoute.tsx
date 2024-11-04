@@ -23,6 +23,7 @@ import DueAmountLayout from '../Screen/dueamount/Layout/dueAmountLayout'
 import AddDueAmountWrapper from '../Screen/dueamount/Add/addDueAmountWrapper'
 import ViewinvoiceWrapper from '../Screen/invoice/Viewinvoice/ViewInvoiceform/viewinvoiceWrapper'
 import TransactionsListingWrapper from '../Screen/transaction/List/TransactionsListingWrapper'
+import DashBoardWrapper from '../Screen/dashboard/DashBoardWrapper'
 
 export const PageRoute = () => {
   const router = createBrowserRouter([
@@ -120,6 +121,9 @@ export const PageRoute = () => {
         {
           path: "transaction",
           element: <TransactionsListingWrapper />
+        },{
+          path:"dashboard",
+          element:<DashBoardWrapper/>
         }
       ]
     }

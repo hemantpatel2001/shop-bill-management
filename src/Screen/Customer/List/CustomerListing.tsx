@@ -12,9 +12,9 @@ type Props = {
 
 const CustomerListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }: Props) => {
     const navigate = useNavigate();
-    console.log(data);
+  
 
-    if (isLoading) return <div className='md:max-w-4xl max-w-2xl mx-auto p-6 mt-16 bg-white rounded-md shadow-md'><Skeleton /></div>;
+    if (isLoading) return <div className='md:max-w-4xl max-w-2xl mx-auto p-6 mt-36 bg-white rounded-md border shadow-md'><Skeleton /></div>;
     if (isError) return <div className="flex justify-center text-sky-800 text-4xl p-44">Error fetching customers</div>;
 
     return (

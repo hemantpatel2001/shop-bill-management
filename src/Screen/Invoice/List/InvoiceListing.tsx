@@ -1,6 +1,7 @@
 
 
 import { Link, useNavigate } from "react-router-dom";
+import Skeleton from "../../Customer/TableSkeleton/Skeleton";
 
 
 type Props = {
@@ -50,7 +51,7 @@ const InvoiceListing = ({ data, isLoading, isError, HandleEdit, HandlePayDue, Ha
 
     console.log(data)
 
-    if (isLoading) return <div className=' max-w-4xl mx-auto p-6 mt-16 bg-white rounded-md shadow-md'>hi</div>;
+    if (isLoading) return <div className=' max-w-4xl mx-auto p-6 mt-16 bg-white rounded-md shadow-md'><Skeleton/></div>;
     if (isError) return <div className="flex justify-center text-sky-800 text-4xl p-44">Error fetching customers</div>;
 
     return (

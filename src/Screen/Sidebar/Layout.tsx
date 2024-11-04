@@ -22,7 +22,7 @@ const Layout = () => {
             </div>
 
             {/* Main content area */}
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1 overflow-y-auto  fixed top-0 right-0 left-0 ">
                 <Header toggleSidebar={toggleSidebar} />
                 <div className="ml-0 md:ml-[90px] transition-all duration-300 ease-in-out">
                     <Outlet />

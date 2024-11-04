@@ -40,11 +40,11 @@ const InvoiceLayout = ({ Heading, formikProps, customerData, productData, button
     const dueAmount = totalPrice - (values.paidAmount || 0);
 
     return (
-        <div className='flex justify-center mt-10 mx-2 md:mt-5'>
-            <div className="w-full mb-4 max-w-3xl p-4 border shadow-xl rounded-lg bg-white">
-                <h1 className="text-2xl mb-4 text-center">{Heading}</h1>
+        <div className='flex justify-center m-auto mt-24 mx-2 md:mt-5'>
+            <div className="w-full mb-4 max-w-4xl border p-3 shadow-xl rounded-lg bg-white">
+                <h1 className="text-2xl mb-4 ">{Heading}</h1>
 
-                <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="mb-2 grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <AtmDateField
                             label="Date"
@@ -72,7 +72,7 @@ const InvoiceLayout = ({ Heading, formikProps, customerData, productData, button
                     </div>
                 </div>
 
-                <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="mb-2 grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label className="block text-lg text-slate-800 mb-1">Customer Name</label>
                         <select
@@ -111,7 +111,7 @@ const InvoiceLayout = ({ Heading, formikProps, customerData, productData, button
                 <FieldArray name="products">
                     {({ push, remove }) => (
                         <div>
-                            <div className="overflow-y-auto h-48 border border-gray-300 mb-4">
+                            <div className="overflow-y-auto h-44 border border-gray-300 mb-4">
                                 <table className="min-w-full table-auto">
                                     <thead className="bg-gray-100 sticky top-0 text-center">
                                         <tr>
@@ -167,7 +167,7 @@ const InvoiceLayout = ({ Heading, formikProps, customerData, productData, button
                                                     </p>
                                                 </td>
                                                 <td className="border px-4 py-2">
-                                                    {product.quantity * product.price||0}
+                                                    {product.quantity * product.price || 0}
                                                 </td>
                                                 <td className="border px-4 py-2">
                                                     <button
@@ -211,7 +211,7 @@ const InvoiceLayout = ({ Heading, formikProps, customerData, productData, button
                             onChange={handleChange}
                             name="paidAmount"
                             className="block w-full p-2 border border-gray-300 rounded-md"
-            
+
                         />
                         {errors.paidAmount && (
 
@@ -233,7 +233,7 @@ const InvoiceLayout = ({ Heading, formikProps, customerData, productData, button
                     <button
                         type="submit"
                         disabled={isSubmitting || !!errors.paidAmount}
-                        className='text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium w-full rounded-lg text-lg px-5 py-2.5 text-center mt-10'
+                        className='text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium w-full rounded-lg text-lg px-5 py-2.5 text-center mt-6'
                     >
                         {isSubmitting ? 'Submitting...' : buttonName}
                     </button>

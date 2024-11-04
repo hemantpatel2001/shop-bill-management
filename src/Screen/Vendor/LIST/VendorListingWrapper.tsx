@@ -2,9 +2,10 @@ import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import VendorListing from './VendorListing'
 import { useGetAllVendorQuery } from '../../../Slice/vendorslice'
+import DashboardLayout from '../../dashboard/Layout/DashboardLayout'
 
 const VendorListingWrapper = () => {
-   const {data,isError,isLoading}=useGetAllVendorQuery()
+    const { data, isError, isLoading } = useGetAllVendorQuery()
     const navigate = useNavigate()
 
     // const HandleDelete = (id: string) => {
@@ -43,14 +44,17 @@ const VendorListingWrapper = () => {
         console.log(id)
     }
 
-    return (
-        <VendorListing
+    return (<div>
+            <VendorListing
             data={data} 
             HandleEdit={HandleEdit} 
             // HandleDelete={HandleDelete} 
             isLoading={isLoading} 
             isError={isError} 
         />
+     
+    </div>
+    
     )
 }
 

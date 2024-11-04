@@ -1,8 +1,8 @@
 // Skeleton.tsx
 const Skeleton = () => {
     return (
-        <div className="animate-pulse">
-            <div className="flex justify-between mb-4">
+        <div className="animate-pulse  ">
+            <div className="flex justify-between mb-4 ">
                 <div className="w-1/3 h-8 bg-gray-300 rounded"></div>
                 <div className="w-1/6 h-8 bg-gray-300 rounded"></div>
             </div>
