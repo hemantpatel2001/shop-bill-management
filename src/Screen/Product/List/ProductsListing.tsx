@@ -10,13 +10,11 @@ type Props = {
   HandleDelete?: (id: string) => void
 }
 
-const capitalizeFirstLetter = (string: string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+
 
 const ProductsListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }: Props) => {
   const navigate = useNavigate();
-
+console.log(data)
   if (isLoading) return (
     <div className='max-w-full lg:max-w-4xl mx-auto p-4 sm:p-6 md:p-8 mt-16 border bg-white rounded-md shadow-md'>
       <Skeleton />
@@ -55,11 +53,11 @@ const ProductsListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }:
             </tr>
           </thead>
           <tbody>
-            {data?.data?.slice().reverse().map((product) => (
+            {data?.data?.slice()?.reverse()?.map((product) => (
               <tr key={product._id} className="hover:bg-gray-50 transition duration-100 ">
-                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{capitalizeFirstLetter(product.productName)}</td>
-                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{capitalizeFirstLetter(product.productCode)}</td>
-                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{capitalizeFirstLetter(product.categoryId?.name)}</td>
+                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.productName}</td>
+                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.productCode}</td>
+                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.categoryId}</td>
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.costPrice}</td>
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.MRP}</td>
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.sellingPrice}</td>

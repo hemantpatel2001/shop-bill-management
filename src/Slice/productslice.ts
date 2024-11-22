@@ -6,7 +6,7 @@ const customerslice = apislice.injectEndpoints({
     endpoints: (builder) => ({
         ProductAdd: builder.mutation({
             query: (body) => ({
-                url: 'product/create',
+                url: 'products/createProduct',
                 method: 'POST',
                 body
             }),
@@ -15,7 +15,7 @@ const customerslice = apislice.injectEndpoints({
         }),
         productGet: builder.query({
             query: () => ({
-                url: 'product/getAllProducts',
+                url: 'products/getAllProducts',
                 method: "GET",
                
             }),
@@ -23,7 +23,7 @@ const customerslice = apislice.injectEndpoints({
         }),
         updateproduct: builder.mutation({
             query: ({ id, data }) => ({
-                url: `/product/update/${id}`,
+                url: `/products/update/${id}`,
                 method: "PUT",
                 body: data
             }),
@@ -31,7 +31,7 @@ const customerslice = apislice.injectEndpoints({
         }),
         productGetById: builder.query({
             query: (id) => ({
-                url: `/product/singleproduct/${id}`,
+                url: `/products/singleproduct/${id}`,
                 method: "GET",
 
             }),

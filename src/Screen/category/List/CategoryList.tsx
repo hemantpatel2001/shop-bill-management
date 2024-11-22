@@ -10,12 +10,12 @@ type Props = {
   HandleEdit: (id: string) => void
 }
 
-const CategoryList = ({ isLoading, isError, HandleEdit, data, HandleDelete }: Props) => {
+const CategoryList = ({ isLoading, isError, HandleEdit, data }: Props) => {
   const navigate = useNavigate();
 
   if (isLoading) {
     return (
-      <div className='max-w-full lg:max-w-4xl mx-auto p-4 sm:p-6 md:p-8 mt-16  shadow-md'>
+      <div className='max-w-full lg:max-w-4xl  mx-auto p-4 sm:p-6 md:p-8 mt-16  shadow-md'>
         <TableCategorySkeleton />
       </div>
     );
@@ -30,7 +30,7 @@ const CategoryList = ({ isLoading, isError, HandleEdit, data, HandleDelete }: Pr
   }
 
   return (
-    <div className="max-w-[330px] lg:max-m-full mt-24 p-4  lg:max-w-4xl  lg:mt-10 mx-auto  sm:p-6 md:p-8 :mt-12 border bg-white rounded-md shadow-md">
+    <div className="max-w-[330px] lg:max-m-full mt-24 p-4   lg:max-w-4xl  lg:mt-10 mx-auto  sm:p-6 md:p-8 :mt-12 border bg-white rounded-md shadow-md">
       <div className="flex flex-row justify-between items-center mb-6">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-gray-800">Categories</h1>
         <button
@@ -50,9 +50,9 @@ const CategoryList = ({ isLoading, isError, HandleEdit, data, HandleDelete }: Pr
             </tr>
           </thead>
           <tbody>
-            {data?.data?.slice().reverse().map((category) => (
+            {data?.data?.slice().reverse().map((category:any) => (
               <tr key={category._id} className="hover:bg-gray-50 transition duration-200  ">
-                <td className="px-2 sm:px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{category.name}</td>
+                <td className="px-2 sm:px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{category.categoryName}</td>
                 <td className="px-2 sm:px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl ">
                   <button
                     onClick={() => HandleEdit(category._id)}

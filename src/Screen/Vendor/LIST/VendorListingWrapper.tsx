@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import Swal from 'sweetalert2'
 import VendorListing from './VendorListing'
 import { useGetAllVendorQuery } from '../../../Slice/vendorslice'
-import DashboardLayout from '../../dashboard/Layout/DashboardLayout'
 
 const VendorListingWrapper = () => {
     const { data, isError, isLoading } = useGetAllVendorQuery()

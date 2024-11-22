@@ -1,7 +1,7 @@
 import CustomerListing from './CustomerListing'
 import { useCustomerGetQuery, useDeleteCustomerMutation } from '../../../Slice/customerslice'
 import { useNavigate } from 'react-router-dom'
-import Swal from 'sweetalert2' // Import SweetAlert2
+import Swal from 'sweetalert2' 
 
 const CustomerListingWrapper = () => {
     const [customerdelete] = useDeleteCustomerMutation()
@@ -40,7 +40,7 @@ const CustomerListingWrapper = () => {
     }
 
     const HandleEdit = (id: string) => {
-        navigate(`edit-customer/${id}`)
+        navigate(`/shop-bill-management/edit-customer/${id}`)
         console.log(id)
     }
 

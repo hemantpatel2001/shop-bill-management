@@ -6,10 +6,10 @@ type Props = {
     formikProps: FormikProps<CategoryFormValues>;
     heading: string;
     buttonName: string;
-    isLoding:string
+    isLoading:boolean
 };
 
-const CategoryLayout = ({ formikProps, heading, buttonName,isLoding }: Props) => {
+const CategoryLayout = ({ formikProps, heading, buttonName,isLoading }: Props) => {
     const { values, handleChange, handleSubmit, isSubmitting } = formikProps;
 
     return (
@@ -25,13 +25,13 @@ const CategoryLayout = ({ formikProps, heading, buttonName,isLoding }: Props) =>
                         <ATMTextField
                             label="Category name"
                             placeholder="Enter category name"
-                            name="name"
-                            value={values.name}
+                            name="categoryName"
+                            value={values.categoryName}
                             onChange={handleChange}
                             className="w-full p-2 text-base sm:text-lg md:text-xl"
                         />
                         <p  >
-                            <ErrorMessage name="name" />
+                            <ErrorMessage name="categoryName" />
                         </p>
                     </div>
 
@@ -42,7 +42,7 @@ const CategoryLayout = ({ formikProps, heading, buttonName,isLoding }: Props) =>
                             className="w-full h-12 mt-4 bg-blue-600 hover:bg-blue-500 text-white text-lg sm:text-xl font-medium rounded-lg transition-colors duration-300"
                             disabled={isSubmitting}
                         >
-                            {isSubmitting||isLoding ? 'Submitting...' : buttonName}
+                            {isSubmitting|| isLoading ? 'Submitting...' : buttonName}
                         </button>
                     </div>
                 </form>

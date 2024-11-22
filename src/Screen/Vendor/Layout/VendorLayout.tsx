@@ -32,7 +32,7 @@ const VendorLayout = ({ formikProps, heading, buttonName }: Props) => {
                     </div>
 
                     {/* Email */}
-                    <div className="mb-4">
+                    {/* <div className="mb-4">
                         <ATMTextField
                             label="Email"
                             placeholder="Enter vendor email"
@@ -42,7 +42,7 @@ const VendorLayout = ({ formikProps, heading, buttonName }: Props) => {
                             className="w-full text-lg"
                         />
                         <p className="text-red-400 text-sm h-3"><ErrorMessage name='email' /></p>
-                    </div>
+                    </div> */}
 
                     {/* Mobile */}
                     <div className="mb-4">

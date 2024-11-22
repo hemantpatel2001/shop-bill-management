@@ -6,7 +6,7 @@ const categoryslice = apislice.injectEndpoints({
     endpoints: (builder) => ({
         categoryAdd: builder.mutation({
             query: (body) => ({
-                url: '/category/addCategory',
+                url: '/category/add-category',
                 method: 'POST',
                 body
             }),
@@ -14,7 +14,7 @@ const categoryslice = apislice.injectEndpoints({
         }),
         categoryGet: builder.query({
             query: (body) => ({
-                url: '/category/getAllCategory',
+                url: '/category/get-all-category',
                 method: "GET",
                 body
             }),
@@ -22,14 +22,14 @@ const categoryslice = apislice.injectEndpoints({
         }),
         categoryDelete: builder.mutation({
             query: (id) => ({
-                url: `/category/delete/${id}`,
+                url: `/category/delete-category/${id}`,
                 method: "DELETE"
             }),
             invalidatesTags: ["categoryDelte"]
         }),
         updatecategory: builder.mutation({
             query: ({ id, data }) => ({
-                url: `/category/update/${id}`,
+                url: `/category/update-category/${id}`,
                 method: "PATCH",
                 body: data
             }),
@@ -37,7 +37,7 @@ const categoryslice = apislice.injectEndpoints({
         }),
         categoryGetById: builder.query({
             query: (id) => ({
-                url: `/category/getSingleById/${id}`,
+                url: `/category/get-category-by-id/${id}`,
                 method: "GET",
 
             }),

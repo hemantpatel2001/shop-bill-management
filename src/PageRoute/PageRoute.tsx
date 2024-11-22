@@ -76,7 +76,7 @@ export const PageRoute = () => {
         },
         {
           path: 'edit-product/:id'
-          , element: <EditProductWrapper />
+          , element: <EditProductWrapper/>
         },
         {
           path: "Product-details",
@@ -87,12 +87,8 @@ export const PageRoute = () => {
           element: <AddVendorFormWrappers />
         },
         {
-          path: "edit-vendor",
-          element: <EditVendorsFormWrapper />
-        },
-        {
           path: "vendors-details",
-          element: <VendorListingWrapper />
+          element: <VendorListingWrapper/>
         },
         {
           path: 'edit-vendore/:id',

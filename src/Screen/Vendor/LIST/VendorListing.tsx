@@ -6,7 +6,7 @@ type Props = {
   data: any;
   isLoading: boolean;
   isError: boolean;
-  HandleDelete: (id: string) => void;
+  HandleDelete?: (id: string) => void;
   HandleEdit: (id: string) => void;
 };
 
@@ -30,7 +30,8 @@ const VendorListing = ({ data, isLoading, isError, HandleEdit }: Props) => {
   }
 
   return (
-    <div className="max-w-[350px] lg:max-w-7xl border mx-auto p-2 sm:p-6 md:p-8 md:mt-8  mt-28 rounded-md shadow-md">
+
+    <div className="max-w-[400px] lg:max-w-5xl border mx-auto p-2 sm:p-6 md:p-8 md:mt-8  mt-28 rounded-md shadow-md">
       <div className="flex flex-row  md:w-auto w-[320px] justify-between items-baseline mb-6">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-gray-700">Vendors</h1>
         <button
@@ -46,7 +47,7 @@ const VendorListing = ({ data, isLoading, isError, HandleEdit }: Props) => {
           <thead className="bg-gray-100 sticky top-0 sm:text-lg md:text-xl lg:text-xl  ">
             <tr className="text-left">
               <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Name</th>
-              <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Email</th>
+              {/* <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Email</th> */}
               <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Mobile</th>
               <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Address</th>
               <th className="px-4 py-2 border-b-2 border-gray-300 font-semibold text-gray-700">Actions</th>
@@ -56,7 +57,7 @@ const VendorListing = ({ data, isLoading, isError, HandleEdit }: Props) => {
             {data?.data?.slice().reverse().map((vendor: any) => (
               <tr key={vendor._id} className="hover:bg-gray-50 transition  text-xl duration-100 ">
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl text-gray-800">{vendor.name}</td>
-                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl text-gray-800">{vendor.email}</td>
+                {/* <td className="px-4 py-3 text-sm sm:text-lg md:text-xl text-gray-800">{vendor.email}</td> */}
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl  text-gray-800">{vendor.mobile}</td>
                 <td className="px-4 py-3 text-sm sm:text-lg md:text-xl  text-gray-800">{vendor.address}</td>
                 <td className="px-2 py-3 text-sm sm:text-lg md:text-xl  text-gray-800 flex justify-center">

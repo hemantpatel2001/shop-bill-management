@@ -31,7 +31,7 @@ const customerslice = apislice.injectEndpoints({
         updatecustomer: builder.mutation({
             query: ({ id, data }) => ({
                 url: `/customer/update/${id}`,
-                method: "PATCH",
+                method: "PUT",
                 body: data
             }),
             invalidatesTags: ["edit", "single"],

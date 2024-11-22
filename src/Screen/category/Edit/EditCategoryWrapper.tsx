@@ -3,44 +3,50 @@ import { useNavigate, useParams } from "react-router-dom";
 import { object, string } from "yup";
 import CategoryLayout from "../Layout/CategoryLayout";
 import { useCategoryGetByIdQuery, useUpdatecategoryMutation } from "../../../Slice/categoryslice";
+import { toast } from "react-toastify";
 
 export type CategoryFormValues = {
-    name: string;
+    categoryName: string;
 };
 
 const EditCategoryWrapper = () => {
     const navigate = useNavigate();
-
-    const [updatecategory,{isLoading}] = useUpdatecategoryMutation();
     const { id } = useParams();
-    console.log(id)
+    const [updatecategory, { isLoading }] = useUpdatecategoryMutation();
+
     const { data } = useCategoryGetByIdQuery(id);
-console.log(data)
+
     const initialValues: CategoryFormValues = {
-        name: data?.data?.name || '',
+        categoryName: data?.data?.categoryName || '',
     };
 
+ 
     const categoryValidation = object({
-        name: string().required('Enter category name'),
+        categoryName: string().required('Enter category name'),
     });
 
+  
     const handleSubmit = (
         values: CategoryFormValues,
         { setSubmitting, resetForm }: FormikHelpers<CategoryFormValues>
     ) => {
         updatecategory({ data: values, id })
             .then((res) => {
-                console.log(res);
+                if (res.data?.msg) {
+                    toast.success(res.data?.msg);
+                } else {
+                    toast.success("Category updated successfully!");
+                }
                 navigate("/shop-bill-management/category-details");
+            })
+            .catch((error) => {
+                toast.error(error?.message || "Something went wrong while updating category.");
+            })
+            .finally(() => {
+                resetForm();
+                setSubmitting(false);
             });
-
-        if (values) {
-            resetForm();
-            setSubmitting(false);
-        }
     };
-
-
 
     return (
         <Formik
@@ -54,7 +60,7 @@ console.log(data)
                     heading={"Update category"}
                     buttonName="UPDATE"
                     formikProps={formikProps}
-                   isLoading={isLoading}
+                    isLoading={isLoading}
                 />
             )}
         </Formik>

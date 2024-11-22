@@ -1,8 +1,15 @@
-import { ErrorMessage } from "formik";
+import { ErrorMessage, FormikProps } from "formik";
 import ATMTextField from "../../../Components/Atoms/AtmTextField/AtmTextField";
 import AtmNumberField from "../../../Components/Atoms/AtmNumberField/AtmNumberField";
-
-const ProductLayout = ({ formikProps, heading, buttonName, data, isEdit }) => {
+import { ProductFormValues } from "../Add/AddProductWrapper";
+type Props ={
+    formikProps: FormikProps<ProductFormValues>; 
+    heading: string; 
+    buttonName: string;
+    isEdit?: boolean;
+    data:any
+}
+const ProductLayout = ({ formikProps, heading, buttonName, data, isEdit }:Props) => {
     const { values, handleChange, handleSubmit, isSubmitting } = formikProps;
 
     return (
@@ -55,9 +62,10 @@ const ProductLayout = ({ formikProps, heading, buttonName, data, isEdit }) => {
                                 className="block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
                             >
                                 <option value="">Select category</option>
-                                {data?.data?.map((category) => (
-                                    <option key={category._id} value={category._id}>
-                                        {category.name}
+                                {data?.data?.map((category:any) => (
+                                  
+                                    <option key={category?._id} value={category?._id}>
+                                        {category?.categoryName}
                                     </option>
                                 ))}
                             </select>
