@@ -53,14 +53,14 @@ console.log(data)
             </tr>
           </thead>
           <tbody>
-            {data?.data?.slice()?.reverse()?.map((product) => (
+            {data?.data?.slice()?.reverse()?.map((product:any) => (
               <tr key={product._id} className="hover:bg-gray-50 transition duration-100 ">
-                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.productName}</td>
-                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.productCode}</td>
-                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.categoryId}</td>
-                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.costPrice}</td>
-                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.MRP}</td>
-                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product.sellingPrice}</td>
+                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product?.productName}</td>
+                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product?.productCode}</td>
+                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product?.categoryId?.categoryName}</td>
+                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product?.costPrice}</td>
+                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product?.MRP}</td>
+                <td className="px-4 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800">{product?.sellingPrice}</td>
                 <td className="px-2 py-3 text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-800 flex justify-center">
                   <button
                     onClick={() => HandleEdit(product._id)}

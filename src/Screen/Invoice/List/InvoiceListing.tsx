@@ -1,6 +1,6 @@
 
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Skeleton from "../../Customer/TableSkeleton/Skeleton";
 
 
@@ -13,38 +13,7 @@ type Props = {
     HandlePayDue: (id: string) => void
     HandleView: (id: string) => void
 }
-const dummy = [
-    {
-        customerId: "66f699901de6243ffad5981c",
-        invoicNo: "12334",
-        customerName: "Rashi",
-        date: "2024-10-03",
-        dueAmount: "600",
-        totalAmount: 800,
 
-        products: [
-            {
-                productName: "Mango",
-                quantity: 50,
-            }
-        ]
-    },
-    {
-        customerId: "66f699901de6243ffa7447",
-        invoicNo: "123345",
-        customerName: "rohit",
-        date: "2024-10-03",
-        dueAmount: "700",
-        totalAmount: 800,
-
-        products: [
-            {
-                productName: "Mango",
-                quantity: 50,
-            }
-        ]
-    },
-]
 
 const InvoiceListing = ({ data, isLoading, isError, HandleEdit, HandlePayDue, HandleView }: Props) => {
     const navigate = useNavigate()
@@ -81,13 +50,13 @@ const InvoiceListing = ({ data, isLoading, isError, HandleEdit, HandlePayDue, Ha
                         </tr>
                     </thead>
                     <tbody>
-                        {dummy?.slice().reverse().map((customer) => (
-                            <tr key={customer._id} >
-                                <td className="px-4 py-3  border-b text-base text-gray-800">{customer?.invoicNo}</td>
-                                <td className="px-4 py-3  border-b text-base text-gray-800">{customer?.date}</td>
-                                <td className="px-4 py-3  border-b text-base text-gray-800">{customer?.customerName}</td>
-                                <td className="px-4 py-3  border-b text-base text-gray-800">{customer?.totalAmount}</td>
-                                <td className="px-4 py-3  border-b text-base text-gray-800">{customer?.dueAmount}</td>
+                        {data?.invoices?.map((invoice) => (
+                            <tr key={invoice._id} >
+                                <td className="px-4 py-3  border-b text-base text-gray-800">{invoice.invoiceNo}</td>
+                                <td className="px-4 py-3  border-b text-base text-gray-800">{invoice.date}</td>
+                                <td className="px-4 py-3  border-b text-base text-gray-800">{invoice.customerId.name}</td>
+                                <td className="px-4 py-3  border-b text-base text-gray-800">{invoice.totalAmount}</td>
+                                <td className="px-4 py-3  border-b text-base text-gray-800">{invoice.paidAmount}</td>
 
 
                                 <td className="px-4 py-3  border-b text-base text-gray-800">

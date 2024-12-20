@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 
 const EditProductWrapper = () => {
   const { id } = useParams();
-  const { data } = useCategoryGetQuery(1);
+  const { data } = useCategoryGetQuery();
   const { data: productdata } = useProductGetByIdQuery(id);
   const [updateproduct] = useUpdateproductMutation();
 
@@ -65,7 +65,7 @@ const EditProductWrapper = () => {
 
   const handleSubmit = (values: ProductFormValues) => {
     updateproduct({ data: values, id }).then((res) => {
-      if (res?.data.msg === "product update") {
+      if (res?.data.status === "true") {
         navigate("/shop-bill-management/product-details");
         toast.success(res?.data.msg);
       } else {

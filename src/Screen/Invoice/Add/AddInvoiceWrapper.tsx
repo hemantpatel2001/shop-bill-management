@@ -34,7 +34,7 @@ const invoiceValidation = object({
             (total, product) => total + product.price * product.quantity,
             0
           ) || 0;
-        return paidAmount < totalPrice;
+        return paidAmount <= totalPrice;
       }
     ),
   products: array()
@@ -63,7 +63,7 @@ const AddInvoiceWrapper = () => {
     console.log("Form Values:", values);
     addInvoce(values)
       .then((res) => {
-        if (res.data?.msg === "Invoice added successfully") {
+        if (res.data?.status==true) {
           toast.success(res.data?.msg);
           navigate("/shop-bill-management/invoice-details");
         } else {

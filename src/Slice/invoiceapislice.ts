@@ -6,20 +6,20 @@ const invoiceapislice= apislice.injectEndpoints({
     endpoints: (builder) => ({
        InvoiceAdd: builder.mutation({
             query: (body) => ({
-                url: '/invoice/create',
+                url: '/invoice/createInvoice',
                 method: 'POST',
                 body
             }),
     
         }),
-        // categoryGet: builder.query({
-        //     query: (body) => ({
-        //         url: '/category/getAllCategory',
-        //         method: "GET",
-        //         body
-        //     }),
-        //     providesTags: ["categoryadd", "categoryDelte", "categoryadd","singleCategory"]
-        // }),
+        getAllInvoice: builder.query({
+            query: (body) => ({
+                url: '/invoice/getAllInvoice',
+                method: "GET",
+                body
+            }),
+            providesTags: []
+        }),
         // categoryDelete: builder.mutation({
         //     query: (id) => ({
         //         url: `/category/delete/${id}`,
@@ -49,4 +49,4 @@ const invoiceapislice= apislice.injectEndpoints({
 
     })
 })
-export const {useInvoiceAddMutation} = invoiceapislice
+export const {useInvoiceAddMutation,useGetAllInvoiceQuery} = invoiceapislice
