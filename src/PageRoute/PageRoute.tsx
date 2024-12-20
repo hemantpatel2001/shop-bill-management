@@ -1,7 +1,5 @@
-import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LoginWrapper from '../Login/LoginWrapper'
-import AddCustomerFormWrapper from '../Screen/Customer/Add/AddCustomerFormWrapper'
 import CustomerListingWrapper from '../Screen/Customer/List/CustomerListingWrapper'
 import Layout from '../Screen/Sidebar/Layout'
 import AddProductWrapper from '../Screen/Product/Add/AddProductWrapper'
@@ -13,7 +11,6 @@ import CategoryListWrapper from '../Screen/category/List/CategoryListWrapper'
 import AddVendorFormWrappers from '../Screen/Vendor/ADD/AddVendorFormWrappers'
 import EditVendorsFormWrapper from '../Screen/Vendor/EDIT/EditVendorsFormwrappers'
 import VendorListingWrapper from '../Screen/Vendor/LIST/VendorListingWrapper'
-import AddInvoiceWrapper from '../Screen/invoice/Add/addInvoiceWrapper'
 import EditInvoicesWrapper from '../Screen/invoice/Edit/editInvoicesWrapper'
 import InvoiceListingWrapper from '../Screen/invoice/List/InvoiceListingWrapper'
 import { Auth } from '../Authentications/Authntecation'
@@ -23,6 +20,8 @@ import AddDueAmountWrapper from '../Screen/dueamount/Add/addDueAmountWrapper'
 import ViewinvoiceWrapper from '../Screen/invoice/Viewinvoice/ViewInvoiceform/viewinvoiceWrapper'
 import TransactionsListingWrapper from '../Screen/transaction/List/TransactionsListingWrapper'
 import DashBoardWrapper from '../Screen/dashboard/DashboardWrapper'
+import AddInvoiceWrapper from '../Screen/invoice/Add/addInvoiceWrapper'
+import AddCustomerFormWrapper from '../Screen/Customer/Add/AddCustomerFormWrapper'
 
 
 export const PageRoute = () => {
@@ -36,7 +35,7 @@ export const PageRoute = () => {
       children: [
         {
           path: "add-customer",
-          element: <AddCustomerFormWrapper />
+          element: <AddCustomerFormWrapper/>
         },
         {
           path: "customer-details",

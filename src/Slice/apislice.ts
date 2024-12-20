@@ -6,7 +6,7 @@ export const apislice = createApi({
     // baseUrl: "https://wdql6t7t-1000.inc1.devtunnels.ms"
     baseUrl: "https://v8z76x8n-1000.inc1.devtunnels.ms",
   }),
-  endpoints: (builder) => ({}),
+  endpoints: () => ({}),
   tagTypes: [
     "customer",
     "product",

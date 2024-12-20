@@ -1,4 +1,3 @@
-import React from 'react'
 import TransactionListing from './TransactionListing'
 
 type Props = {}
