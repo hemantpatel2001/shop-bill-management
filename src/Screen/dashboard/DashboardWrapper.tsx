@@ -1,4 +1,4 @@
-import React from 'react'
+
 import DashboardLayout from './Layout/DashboardLayout'
 
 type Props = {}

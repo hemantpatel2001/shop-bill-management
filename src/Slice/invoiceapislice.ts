@@ -1,6 +1,15 @@
 import { apislice } from "./apislice"
 
-
+interface Invoice {
+    id: string;
+    invoiceNo: string;
+    date: string;
+    totalAmount: number;
+    paidAmount: number;
+    customerId: {
+      name: string;
+    };
+  }
 
 const invoiceapislice= apislice.injectEndpoints({
     endpoints: (builder) => ({
@@ -12,7 +21,7 @@ const invoiceapislice= apislice.injectEndpoints({
             }),
     
         }),
-        getAllInvoice: builder.query({
+        getAllInvoice: builder.query<Invoice[],void>({
             query: (body) => ({
                 url: '/invoice/getAllInvoice',
                 method: "GET",

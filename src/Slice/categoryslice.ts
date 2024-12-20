@@ -1,6 +1,11 @@
 import { apislice } from "./apislice"
 
-
+interface Category {
+    id: string;
+    name: string;
+  }
+  
+  
 
 const categoryslice = apislice.injectEndpoints({
     endpoints: (builder) => ({
@@ -12,7 +17,7 @@ const categoryslice = apislice.injectEndpoints({
             }),
             invalidatesTags: ["categoryadd"]
         }),
-        categoryGet: builder.query({
+        categoryGet: builder.query<Category[],void>({
             query: (body) => ({
                 url: '/category/get-all-category',
                 method: "GET",

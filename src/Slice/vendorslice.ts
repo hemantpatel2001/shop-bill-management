@@ -1,4 +1,10 @@
 import { apislice } from "./apislice";
+type Vendor = {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+};
 
 const vendorslice = apislice.injectEndpoints({
   endpoints: (builder) => ({
@@ -10,7 +16,7 @@ const vendorslice = apislice.injectEndpoints({
       }),
       invalidatesTags: ["VendorAdd"],
     }),
-    getAllVendor: builder.query({
+    getAllVendor: builder.query<Vendor[],void>({
       query: (body) => ({
         url: "/vendorschemas/getAllVendors",
         method: "GET",

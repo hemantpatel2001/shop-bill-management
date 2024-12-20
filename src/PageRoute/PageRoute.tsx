@@ -19,11 +19,11 @@ import InvoiceListingWrapper from '../Screen/invoice/List/InvoiceListingWrapper'
 import { Auth } from '../Authentications/Authntecation'
 import EditProductWrapper from '../Screen/Product/Edit/EditProductWrapper'
 import WithOutLogin from '../Authentications/WithoutLoging'
-import DueAmountLayout from '../Screen/dueamount/Layout/dueAmountLayout'
 import AddDueAmountWrapper from '../Screen/dueamount/Add/addDueAmountWrapper'
 import ViewinvoiceWrapper from '../Screen/invoice/Viewinvoice/ViewInvoiceform/viewinvoiceWrapper'
 import TransactionsListingWrapper from '../Screen/transaction/List/TransactionsListingWrapper'
-import DashBoardWrapper from '../Screen/dashboard/DashBoardWrapper'
+import DashBoardWrapper from '../Screen/dashboard/DashboardWrapper'
+
 
 export const PageRoute = () => {
   const router = createBrowserRouter([

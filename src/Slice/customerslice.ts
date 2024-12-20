@@ -1,6 +1,12 @@
 import { apislice } from "./apislice"
 
 
+interface Customer {
+    id: string;
+    name: string;
+    email: string;
+  }
+  
 
 const customerslice = apislice.injectEndpoints({
     endpoints: (builder) => ({
@@ -13,7 +19,7 @@ const customerslice = apislice.injectEndpoints({
             invalidatesTags: ["customer"],
 
         }),
-        customerGet: builder.query({
+        customerGet: builder.query<Customer[],void>({
             query: (body) => ({
                 url: '/customer/allCustomerDetails',
                 method: "GET",
