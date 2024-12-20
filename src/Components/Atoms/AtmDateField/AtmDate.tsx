@@ -26,4 +26,4 @@ const AtmDateField = ({ name, value, onChange, label, placeholder, className }: 
     );
 }
 
-export default AtmDateField
+export default AtmDateField;
