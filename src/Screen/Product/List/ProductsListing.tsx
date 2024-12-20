@@ -12,7 +12,7 @@ type Props = {
 
 
 
-const ProductsListing = ({ data, isLoading, isError, HandleEdit, HandleDelete }: Props) => {
+const ProductsListing = ({ data, isLoading, isError, HandleEdit }: Props) => {
   const navigate = useNavigate();
 console.log(data)
   if (isLoading) return (

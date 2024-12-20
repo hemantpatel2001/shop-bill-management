@@ -1,9 +1,8 @@
-import { useEffect, ReactNode } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 
-// Define the type for the props
 type WithOutLoginProps = {
-  children: ReactNode; // The type for children can be any valid React node
+  children: ReactNode;
 };
 
 const WithOutLogin = ({ children }: WithOutLoginProps) => {
@@ -15,9 +14,9 @@ const WithOutLogin = ({ children }: WithOutLoginProps) => {
     if (token) {
       navigate("/shop-bill-management/customer-details");
     }
-  }, [navigate]); // Ensure `navigate` is included in the dependency array
+  }, [navigate]);
 
-  return <>{children}</>; // Render the children if no token is found
+  return <>{children}</>;
 };
 
 export default WithOutLogin;

@@ -7,7 +7,21 @@ import { useInvoiceAddMutation } from "../../../Slice/invoiceapislice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-const initialValues = {
+// Define types for the form data
+interface Product {
+  productId: string;
+  quantity: string;
+}
+
+interface InvoiceValues {
+  customerId: string;
+  invoiceNo: string;
+  date: string;
+  paidAmount: string;
+  products: Product[];
+}
+
+const initialValues: InvoiceValues = {
   customerId: "",
   invoiceNo: "",
   date: new Date().toISOString().split("T")[0],
@@ -31,7 +45,8 @@ const invoiceValidation = object({
         const { products } = this.parent;
         const totalPrice =
           products.reduce(
-            (total, product) => total + product.price * product.quantity,
+            (total:number, product) =>
+              total + product.price * parseInt(product.quantity),
             0
           ) || 0;
         return paidAmount <= totalPrice;
@@ -53,21 +68,21 @@ const invoiceValidation = object({
 const AddInvoiceWrapper = () => {
   const { data: customerData } = useCustomerGetQuery();
   const { data: productData } = useProductGetQuery();
-  const [addInvoce] = useInvoiceAddMutation();
+  const [addInvoice] = useInvoiceAddMutation();
   const navigate = useNavigate();
 
   const handleSubmit = (
-    values: any,
-    { setSubmitting, resetForm }: FormikHelpers<any>
+    values: InvoiceValues,
+    { setSubmitting, resetForm }: FormikHelpers<InvoiceValues>
   ) => {
     console.log("Form Values:", values);
-    addInvoce(values)
+    addInvoice(values)
       .then((res) => {
-        if (res.data?.status==true) {
+        if (res.data?.status === true) {
           toast.success(res.data?.msg);
           navigate("/shop-bill-management/invoice-details");
         } else {
-          toast.error("Invoice already exits");
+          toast.error("Invoice already exists");
         }
       })
       .catch((error) => {
@@ -78,6 +93,7 @@ const AddInvoiceWrapper = () => {
         resetForm();
       });
   };
+
   return (
     <Formik
       initialValues={initialValues}

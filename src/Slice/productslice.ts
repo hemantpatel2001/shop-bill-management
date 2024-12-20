@@ -1,3 +1,4 @@
+import { ProductFormValues } from './../Screen/Product/Add/AddProductWrapper';
 import { apislice } from "./apislice"
 
 
@@ -13,7 +14,7 @@ const customerslice = apislice.injectEndpoints({
             invalidatesTags:["product"]
     
         }),
-        productGet: builder.query({
+        productGet: builder.query<ProductFormValues[],void>({
             query: () => ({
                 url: 'products/getAllProducts',
                 method: "GET",
