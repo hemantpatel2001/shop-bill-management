@@ -41,7 +41,7 @@ const EditCustomerFormWrapper = () => {
 
             console.log(data)
             if (res.data) {
-                toast(res.data.msg)
+                toast.success(res.data.msg)
                 navigate("/shop-bill-management/customer-details")
                 resetForm()
             }

@@ -1,12 +1,9 @@
-import React from 'react';
 import { AiFillProduct } from 'react-icons/ai';
-import { BiLogOutCircle, BiSolidCategory, BiSolidLogOutCircle } from 'react-icons/bi';
+import { BiLogOutCircle, BiSolidCategory } from 'react-icons/bi';
 import { BsPeopleFill } from 'react-icons/bs';
 import { FaFileInvoiceDollar, FaRegArrowAltCircleLeft } from 'react-icons/fa';
-import { IoMdClose } from 'react-icons/io';
 import { MdDashboard } from 'react-icons/md';
 import { PiHandshakeBold } from 'react-icons/pi';
-import { RiCloseCircleFill } from 'react-icons/ri';
 import { TbTransactionRupee } from 'react-icons/tb';
 import { Link, useNavigate } from 'react-router-dom';
 

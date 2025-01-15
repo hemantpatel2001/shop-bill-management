@@ -1,5 +1,3 @@
-import React from "react";
-
 const TableCategorySkeleton = () => {
   return (
     <div className="animate-pulse">
